@@ -1,0 +1,705 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Usuario\\Desktop\\upn9\\tERCEROS\\Sistema-Web-Delivery-master\\Delivery\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{B4C86937-E5B3-49BA-B470-0216CF166A6C}|Delivery.csproj|C:\\Users\\Usuario\\Desktop\\upn9\\tERCEROS\\Sistema-Web-Delivery-master\\Delivery\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{B4C86937-E5B3-49BA-B470-0216CF166A6C}|Delivery.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B4C86937-E5B3-49BA-B470-0216CF166A6C}|Delivery.csproj|c:\\users\\usuario\\desktop\\upn9\\terceros\\sistema-web-delivery-master\\delivery\\controllers\\comidacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B4C86937-E5B3-49BA-B470-0216CF166A6C}|Delivery.csproj|solutionrelative:controllers\\comidacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B4C86937-E5B3-49BA-B470-0216CF166A6C}|Delivery.csproj|c:\\users\\usuario\\desktop\\upn9\\terceros\\sistema-web-delivery-master\\delivery\\views\\comida\\_listacomidas.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{B4C86937-E5B3-49BA-B470-0216CF166A6C}|Delivery.csproj|solutionrelative:views\\comida\\_listacomidas.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B4C86937-E5B3-49BA-B470-0216CF166A6C}|Delivery.csproj|c:\\users\\usuario\\desktop\\upn9\\terceros\\sistema-web-delivery-master\\delivery\\views\\comida\\_elegircaraccomida.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{B4C86937-E5B3-49BA-B470-0216CF166A6C}|Delivery.csproj|solutionrelative:views\\comida\\_elegircaraccomida.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B4C86937-E5B3-49BA-B470-0216CF166A6C}|Delivery.csproj|c:\\users\\usuario\\desktop\\upn9\\terceros\\sistema-web-delivery-master\\delivery\\views\\comida\\caracteristicacomida.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{B4C86937-E5B3-49BA-B470-0216CF166A6C}|Delivery.csproj|solutionrelative:views\\comida\\caracteristicacomida.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B4C86937-E5B3-49BA-B470-0216CF166A6C}|Delivery.csproj|C:\\Users\\Usuario\\Desktop\\upn9\\tERCEROS\\Sistema-Web-Delivery-master\\Delivery\\views\\comida\\_vercomidaspedido.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{B4C86937-E5B3-49BA-B470-0216CF166A6C}|Delivery.csproj|solutionrelative:views\\comida\\_vercomidaspedido.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B4C86937-E5B3-49BA-B470-0216CF166A6C}|Delivery.csproj|c:\\users\\usuario\\desktop\\upn9\\terceros\\sistema-web-delivery-master\\delivery\\views\\comida\\_modificarcomida.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{B4C86937-E5B3-49BA-B470-0216CF166A6C}|Delivery.csproj|solutionrelative:views\\comida\\_modificarcomida.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B4C86937-E5B3-49BA-B470-0216CF166A6C}|Delivery.csproj|c:\\users\\usuario\\desktop\\upn9\\terceros\\sistema-web-delivery-master\\delivery\\views\\comida\\detallecomida.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{B4C86937-E5B3-49BA-B470-0216CF166A6C}|Delivery.csproj|solutionrelative:views\\comida\\detallecomida.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{94DA770F-8660-4C33-81E7-9D5B12499AF2}|..\\Delivery.Domain\\Delivery.Domain.csproj|c:\\users\\usuario\\desktop\\upn9\\terceros\\sistema-web-delivery-master\\delivery.domain\\food\\comidalog.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B4C86937-E5B3-49BA-B470-0216CF166A6C}|Delivery.csproj|c:\\users\\usuario\\desktop\\upn9\\terceros\\sistema-web-delivery-master\\delivery\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{B4C86937-E5B3-49BA-B470-0216CF166A6C}|Delivery.csproj|solutionrelative:views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B4C86937-E5B3-49BA-B470-0216CF166A6C}|Delivery.csproj|C:\\Users\\Usuario\\Desktop\\upn9\\tERCEROS\\Sistema-Web-Delivery-master\\Delivery\\views\\comida\\vermenu.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{B4C86937-E5B3-49BA-B470-0216CF166A6C}|Delivery.csproj|solutionrelative:views\\comida\\vermenu.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B4C86937-E5B3-49BA-B470-0216CF166A6C}|Delivery.csproj|C:\\Users\\Usuario\\Desktop\\upn9\\tERCEROS\\Sistema-Web-Delivery-master\\Delivery\\views\\comida\\editarmenu.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{B4C86937-E5B3-49BA-B470-0216CF166A6C}|Delivery.csproj|solutionrelative:views\\comida\\editarmenu.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B4C86937-E5B3-49BA-B470-0216CF166A6C}|Delivery.csproj|c:\\users\\usuario\\desktop\\upn9\\terceros\\sistema-web-delivery-master\\delivery\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B4C86937-E5B3-49BA-B470-0216CF166A6C}|Delivery.csproj|solutionrelative:controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{94DA770F-8660-4C33-81E7-9D5B12499AF2}|..\\Delivery.Domain\\Delivery.Domain.csproj|c:\\users\\usuario\\desktop\\upn9\\terceros\\sistema-web-delivery-master\\delivery.domain\\user\\comentario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{94DA770F-8660-4C33-81E7-9D5B12499AF2}|..\\Delivery.Domain\\Delivery.Domain.csproj|c:\\users\\usuario\\desktop\\upn9\\terceros\\sistema-web-delivery-master\\delivery.domain\\food\\comida.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{94DA770F-8660-4C33-81E7-9D5B12499AF2}|..\\Delivery.Domain\\Delivery.Domain.csproj|c:\\users\\usuario\\desktop\\upn9\\terceros\\sistema-web-delivery-master\\delivery.domain\\user\\detallecomidaviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{94DA770F-8660-4C33-81E7-9D5B12499AF2}|..\\Delivery.Domain\\Delivery.Domain.csproj|c:\\users\\usuario\\desktop\\upn9\\terceros\\sistema-web-delivery-master\\delivery.domain\\food\\comida_caracteristicamenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{94DA770F-8660-4C33-81E7-9D5B12499AF2}|..\\Delivery.Domain\\Delivery.Domain.csproj|c:\\users\\usuario\\desktop\\upn9\\terceros\\sistema-web-delivery-master\\delivery.domain\\user\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B4C86937-E5B3-49BA-B470-0216CF166A6C}|Delivery.csproj|c:\\users\\usuario\\desktop\\upn9\\terceros\\sistema-web-delivery-master\\delivery\\controllers\\usuariocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B4C86937-E5B3-49BA-B470-0216CF166A6C}|Delivery.csproj|solutionrelative:controllers\\usuariocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B9943D41-69CE-43AF-AFBA-ADDEADA0308E}|..\\Delivery.Repositories\\Delivery.Repositories.csproj|c:\\users\\usuario\\desktop\\upn9\\terceros\\sistema-web-delivery-master\\delivery.repositories\\implementations\\comentariobase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B9943D41-69CE-43AF-AFBA-ADDEADA0308E}|..\\Delivery.Repositories\\Delivery.Repositories.csproj|c:\\users\\usuario\\desktop\\upn9\\terceros\\sistema-web-delivery-master\\delivery.repositories\\interfaces\\icomentariorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B9943D41-69CE-43AF-AFBA-ADDEADA0308E}|..\\Delivery.Repositories\\Delivery.Repositories.csproj|c:\\users\\usuario\\desktop\\upn9\\terceros\\sistema-web-delivery-master\\delivery.repositories\\interfaces\\icomidarepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B9943D41-69CE-43AF-AFBA-ADDEADA0308E}|..\\Delivery.Repositories\\Delivery.Repositories.csproj|c:\\users\\usuario\\desktop\\upn9\\terceros\\sistema-web-delivery-master\\delivery.repositories\\implementations\\comidabase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B9943D41-69CE-43AF-AFBA-ADDEADA0308E}|..\\Delivery.Repositories\\Delivery.Repositories.csproj|c:\\users\\usuario\\desktop\\upn9\\terceros\\sistema-web-delivery-master\\delivery.repositories\\interfaces\\irepositorybase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B9943D41-69CE-43AF-AFBA-ADDEADA0308E}|..\\Delivery.Repositories\\Delivery.Repositories.csproj|c:\\users\\usuario\\desktop\\upn9\\terceros\\sistema-web-delivery-master\\delivery.repositories\\implementations\\usuariobase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B9943D41-69CE-43AF-AFBA-ADDEADA0308E}|..\\Delivery.Repositories\\Delivery.Repositories.csproj|c:\\users\\usuario\\desktop\\upn9\\terceros\\sistema-web-delivery-master\\delivery.repositories\\implementations\\repositorybase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B9943D41-69CE-43AF-AFBA-ADDEADA0308E}|..\\Delivery.Repositories\\Delivery.Repositories.csproj|c:\\users\\usuario\\desktop\\upn9\\terceros\\sistema-web-delivery-master\\delivery.repositories\\implementations\\pedidobase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5B97199D-551C-4839-96A7-B1BFA6FA8E21}|..\\Delivery.Persistence\\Delivery.Persistence.csproj|c:\\users\\usuario\\desktop\\upn9\\terceros\\sistema-web-delivery-master\\delivery.persistence\\data\\deliverydbinitializer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5B97199D-551C-4839-96A7-B1BFA6FA8E21}|..\\Delivery.Persistence\\Delivery.Persistence.csproj|c:\\users\\usuario\\desktop\\upn9\\terceros\\sistema-web-delivery-master\\delivery.persistence\\data\\deliverydbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5B97199D-551C-4839-96A7-B1BFA6FA8E21}|..\\Delivery.Persistence\\Delivery.Persistence.csproj|c:\\users\\usuario\\desktop\\upn9\\terceros\\sistema-web-delivery-master\\delivery.persistence\\delivery.persistence.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{94DA770F-8660-4C33-81E7-9D5B12499AF2}|..\\Delivery.Domain\\Delivery.Domain.csproj|c:\\users\\usuario\\desktop\\upn9\\terceros\\sistema-web-delivery-master\\delivery.domain\\food\\caracteristicacomida.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5B97199D-551C-4839-96A7-B1BFA6FA8E21}|..\\Delivery.Persistence\\Delivery.Persistence.csproj|c:\\users\\usuario\\desktop\\upn9\\terceros\\sistema-web-delivery-master\\delivery.persistence\\migrations\\deliverydbcontextmodelsnapshot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B4C86937-E5B3-49BA-B470-0216CF166A6C}|Delivery.csproj|c:\\users\\usuario\\desktop\\upn9\\terceros\\sistema-web-delivery-master\\delivery\\controllers\\pedidocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B4C86937-E5B3-49BA-B470-0216CF166A6C}|Delivery.csproj|solutionrelative:controllers\\pedidocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B4C86937-E5B3-49BA-B470-0216CF166A6C}|Delivery.csproj|c:\\users\\usuario\\desktop\\upn9\\terceros\\sistema-web-delivery-master\\delivery\\views\\usuario\\editardatos.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{B4C86937-E5B3-49BA-B470-0216CF166A6C}|Delivery.csproj|solutionrelative:views\\usuario\\editardatos.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Usuario\\Desktop\\upn9\\tERCEROS\\Sistema-Web-Delivery-master\\Delivery.Persistence\\Migrations\\20240527203031_migra.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B4C86937-E5B3-49BA-B470-0216CF166A6C}|Delivery.csproj|c:\\users\\usuario\\desktop\\upn9\\terceros\\sistema-web-delivery-master\\delivery\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{B4C86937-E5B3-49BA-B470-0216CF166A6C}|Delivery.csproj|solutionrelative:appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Usuario\\Desktop\\upn9\\tERCEROS\\Sistema-Web-Delivery-master\\Delivery.Persistence\\Migrations\\20240527202709_newMigra.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B4C86937-E5B3-49BA-B470-0216CF166A6C}|Delivery.csproj|c:\\users\\usuario\\desktop\\upn9\\terceros\\sistema-web-delivery-master\\delivery\\delivery.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{B4C86937-E5B3-49BA-B470-0216CF166A6C}|Delivery.csproj|solutionrelative:delivery.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{94DA770F-8660-4C33-81E7-9D5B12499AF2}|..\\Delivery.Domain\\Delivery.Domain.csproj|c:\\users\\usuario\\desktop\\upn9\\terceros\\sistema-web-delivery-master\\delivery.domain\\order\\pedido.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{94DA770F-8660-4C33-81E7-9D5B12499AF2}|..\\Delivery.Domain\\Delivery.Domain.csproj|c:\\users\\usuario\\desktop\\upn9\\terceros\\sistema-web-delivery-master\\delivery.domain\\order\\direccion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{94DA770F-8660-4C33-81E7-9D5B12499AF2}|..\\Delivery.Domain\\Delivery.Domain.csproj|c:\\users\\usuario\\desktop\\upn9\\terceros\\sistema-web-delivery-master\\delivery.domain\\user\\sexo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{94DA770F-8660-4C33-81E7-9D5B12499AF2}|..\\Delivery.Domain\\Delivery.Domain.csproj|C:\\Users\\Usuario\\Desktop\\upn9\\tERCEROS\\Sistema-Web-Delivery-master\\delivery.domain\\food\\categoriacomida.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 5,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "_ListaComidas.cshtml",
+              "DocumentMoniker": "C:\\Users\\Usuario\\Desktop\\upn9\\tERCEROS\\Sistema-Web-Delivery-master\\Delivery\\Views\\Comida\\_ListaComidas.cshtml",
+              "RelativeDocumentMoniker": "Views\\Comida\\_ListaComidas.cshtml",
+              "ToolTip": "C:\\Users\\Usuario\\Desktop\\upn9\\tERCEROS\\Sistema-Web-Delivery-master\\Delivery\\Views\\Comida\\_ListaComidas.cshtml",
+              "RelativeToolTip": "Views\\Comida\\_ListaComidas.cshtml",
+              "ViewState": "AQIAAAcAAAAAAAAAAAAAABQAAAAYAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-05-27T20:46:28.511Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "_ModificarComida.cshtml",
+              "DocumentMoniker": "C:\\Users\\Usuario\\Desktop\\upn9\\tERCEROS\\Sistema-Web-Delivery-master\\Delivery\\Views\\Comida\\_ModificarComida.cshtml",
+              "RelativeDocumentMoniker": "Views\\Comida\\_ModificarComida.cshtml",
+              "ToolTip": "C:\\Users\\Usuario\\Desktop\\upn9\\tERCEROS\\Sistema-Web-Delivery-master\\Delivery\\Views\\Comida\\_ModificarComida.cshtml",
+              "RelativeToolTip": "Views\\Comida\\_ModificarComida.cshtml",
+              "ViewState": "AQIAAIEAAAAAAAAAAAAAAJYAAABCAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-05-27T20:46:59.111Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "_VerComidasPedido.cshtml",
+              "DocumentMoniker": "C:\\Users\\Usuario\\Desktop\\upn9\\tERCEROS\\Sistema-Web-Delivery-master\\Delivery\\Views\\Comida\\_VerComidasPedido.cshtml",
+              "RelativeDocumentMoniker": "Views\\Comida\\_VerComidasPedido.cshtml",
+              "ToolTip": "C:\\Users\\Usuario\\Desktop\\upn9\\tERCEROS\\Sistema-Web-Delivery-master\\Delivery\\Views\\Comida\\_VerComidasPedido.cshtml",
+              "RelativeToolTip": "Views\\Comida\\_VerComidasPedido.cshtml",
+              "ViewState": "AQIAACoAAAAAAAAAAAAAAC4AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-05-27T19:25:18.755Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "CaracteristicaComida.cshtml",
+              "DocumentMoniker": "C:\\Users\\Usuario\\Desktop\\upn9\\tERCEROS\\Sistema-Web-Delivery-master\\Delivery\\Views\\Comida\\CaracteristicaComida.cshtml",
+              "RelativeDocumentMoniker": "Views\\Comida\\CaracteristicaComida.cshtml",
+              "ToolTip": "C:\\Users\\Usuario\\Desktop\\upn9\\tERCEROS\\Sistema-Web-Delivery-master\\Delivery\\Views\\Comida\\CaracteristicaComida.cshtml",
+              "RelativeToolTip": "Views\\Comida\\CaracteristicaComida.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAFkAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-05-27T20:25:48.405Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ComidaController.cs",
+              "DocumentMoniker": "C:\\Users\\Usuario\\Desktop\\upn9\\tERCEROS\\Sistema-Web-Delivery-master\\Delivery\\Controllers\\ComidaController.cs",
+              "RelativeDocumentMoniker": "Controllers\\ComidaController.cs",
+              "ToolTip": "C:\\Users\\Usuario\\Desktop\\upn9\\tERCEROS\\Sistema-Web-Delivery-master\\Delivery\\Controllers\\ComidaController.cs",
+              "RelativeToolTip": "Controllers\\ComidaController.cs",
+              "ViewState": "AQIAALwBAAAAAAAAAAAAAOABAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-27T20:45:53.758Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\Usuario\\Desktop\\upn9\\tERCEROS\\Sistema-Web-Delivery-master\\Delivery\\appsettings.json",
+              "RelativeDocumentMoniker": "appsettings.json",
+              "ToolTip": "C:\\Users\\Usuario\\Desktop\\upn9\\tERCEROS\\Sistema-Web-Delivery-master\\Delivery\\appsettings.json",
+              "RelativeToolTip": "appsettings.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-05-27T19:37:19.625Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "_ElegirCaracComida.cshtml",
+              "DocumentMoniker": "C:\\Users\\Usuario\\Desktop\\upn9\\tERCEROS\\Sistema-Web-Delivery-master\\Delivery\\Views\\Comida\\_ElegirCaracComida.cshtml",
+              "RelativeDocumentMoniker": "Views\\Comida\\_ElegirCaracComida.cshtml",
+              "ToolTip": "C:\\Users\\Usuario\\Desktop\\upn9\\tERCEROS\\Sistema-Web-Delivery-master\\Delivery\\Views\\Comida\\_ElegirCaracComida.cshtml",
+              "RelativeToolTip": "Views\\Comida\\_ElegirCaracComida.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAADEAAAARAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-05-27T20:45:57.735Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "DetalleComida.cshtml",
+              "DocumentMoniker": "C:\\Users\\Usuario\\Desktop\\upn9\\tERCEROS\\Sistema-Web-Delivery-master\\Delivery\\Views\\Comida\\DetalleComida.cshtml",
+              "RelativeDocumentMoniker": "Views\\Comida\\DetalleComida.cshtml",
+              "ToolTip": "C:\\Users\\Usuario\\Desktop\\upn9\\tERCEROS\\Sistema-Web-Delivery-master\\Delivery\\Views\\Comida\\DetalleComida.cshtml",
+              "RelativeToolTip": "Views\\Comida\\DetalleComida.cshtml",
+              "ViewState": "AQIAAFsAAAAAAAAAAAAQwHAAAADVAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-05-27T21:05:05.354Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "Comida.cs",
+              "DocumentMoniker": "C:\\Users\\Usuario\\Desktop\\upn9\\tERCEROS\\Sistema-Web-Delivery-master\\Delivery.Domain\\Food\\Comida.cs",
+              "RelativeDocumentMoniker": "..\\Delivery.Domain\\Food\\Comida.cs",
+              "ToolTip": "C:\\Users\\Usuario\\Desktop\\upn9\\tERCEROS\\Sistema-Web-Delivery-master\\Delivery.Domain\\Food\\Comida.cs",
+              "RelativeToolTip": "..\\Delivery.Domain\\Food\\Comida.cs",
+              "ViewState": "AQIAADUAAAAAAAAAAAAswAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-27T19:26:09.766Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "C:\\Users\\Usuario\\Desktop\\upn9\\tERCEROS\\Sistema-Web-Delivery-master\\Delivery\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "Controllers\\HomeController.cs",
+              "ToolTip": "C:\\Users\\Usuario\\Desktop\\upn9\\tERCEROS\\Sistema-Web-Delivery-master\\Delivery\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "Controllers\\HomeController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-27T21:01:52.554Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "EditarMenu.cshtml",
+              "DocumentMoniker": "C:\\Users\\Usuario\\Desktop\\upn9\\tERCEROS\\Sistema-Web-Delivery-master\\Delivery\\Views\\Comida\\EditarMenu.cshtml",
+              "RelativeDocumentMoniker": "Views\\Comida\\EditarMenu.cshtml",
+              "ToolTip": "C:\\Users\\Usuario\\Desktop\\upn9\\tERCEROS\\Sistema-Web-Delivery-master\\Delivery\\Views\\Comida\\EditarMenu.cshtml",
+              "RelativeToolTip": "Views\\Comida\\EditarMenu.cshtml",
+              "ViewState": "AQIAABIAAAAAAAAAAAAAAB4AAAAZAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-05-27T19:25:19.505Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "ComidaLog.cs",
+              "DocumentMoniker": "C:\\Users\\Usuario\\Desktop\\upn9\\tERCEROS\\Sistema-Web-Delivery-master\\Delivery.Domain\\Food\\ComidaLog.cs",
+              "RelativeDocumentMoniker": "..\\Delivery.Domain\\Food\\ComidaLog.cs",
+              "ToolTip": "C:\\Users\\Usuario\\Desktop\\upn9\\tERCEROS\\Sistema-Web-Delivery-master\\Delivery.Domain\\Food\\ComidaLog.cs",
+              "RelativeToolTip": "..\\Delivery.Domain\\Food\\ComidaLog.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-27T23:34:45.008Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\Usuario\\Desktop\\upn9\\tERCEROS\\Sistema-Web-Delivery-master\\Delivery\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\Home\\Index.cshtml",
+              "ToolTip": "C:\\Users\\Usuario\\Desktop\\upn9\\tERCEROS\\Sistema-Web-Delivery-master\\Delivery\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "Views\\Home\\Index.cshtml",
+              "ViewState": "AQIAALIAAAAAAAAAAAASwMcAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-05-28T00:14:20.364Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "Comentario.cs",
+              "DocumentMoniker": "C:\\Users\\Usuario\\Desktop\\upn9\\tERCEROS\\Sistema-Web-Delivery-master\\Delivery.Domain\\User\\Comentario.cs",
+              "RelativeDocumentMoniker": "..\\Delivery.Domain\\User\\Comentario.cs",
+              "ToolTip": "C:\\Users\\Usuario\\Desktop\\upn9\\tERCEROS\\Sistema-Web-Delivery-master\\Delivery.Domain\\User\\Comentario.cs",
+              "RelativeToolTip": "..\\Delivery.Domain\\User\\Comentario.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAewAcAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-27T20:08:17.432Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "DetalleComidaViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\Usuario\\Desktop\\upn9\\tERCEROS\\Sistema-Web-Delivery-master\\Delivery.Domain\\User\\DetalleComidaViewModel.cs",
+              "RelativeDocumentMoniker": "..\\Delivery.Domain\\User\\DetalleComidaViewModel.cs",
+              "ToolTip": "C:\\Users\\Usuario\\Desktop\\upn9\\tERCEROS\\Sistema-Web-Delivery-master\\Delivery.Domain\\User\\DetalleComidaViewModel.cs",
+              "RelativeToolTip": "..\\Delivery.Domain\\User\\DetalleComidaViewModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAA5AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-27T23:15:48.217Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "VerMenu.cshtml",
+              "DocumentMoniker": "C:\\Users\\Usuario\\Desktop\\upn9\\tERCEROS\\Sistema-Web-Delivery-master\\Delivery\\Views\\Comida\\VerMenu.cshtml",
+              "RelativeDocumentMoniker": "Views\\Comida\\VerMenu.cshtml",
+              "ToolTip": "C:\\Users\\Usuario\\Desktop\\upn9\\tERCEROS\\Sistema-Web-Delivery-master\\Delivery\\Views\\Comida\\VerMenu.cshtml",
+              "RelativeToolTip": "Views\\Comida\\VerMenu.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-05-27T19:25:19.506Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "Comida_CaracteristicaMenu.cs",
+              "DocumentMoniker": "C:\\Users\\Usuario\\Desktop\\upn9\\tERCEROS\\Sistema-Web-Delivery-master\\Delivery.Domain\\Food\\Comida_CaracteristicaMenu.cs",
+              "RelativeDocumentMoniker": "..\\Delivery.Domain\\Food\\Comida_CaracteristicaMenu.cs",
+              "ToolTip": "C:\\Users\\Usuario\\Desktop\\upn9\\tERCEROS\\Sistema-Web-Delivery-master\\Delivery.Domain\\Food\\Comida_CaracteristicaMenu.cs",
+              "RelativeToolTip": "..\\Delivery.Domain\\Food\\Comida_CaracteristicaMenu.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-27T23:17:04.63Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "UsuarioController.cs",
+              "DocumentMoniker": "C:\\Users\\Usuario\\Desktop\\upn9\\tERCEROS\\Sistema-Web-Delivery-master\\Delivery\\Controllers\\UsuarioController.cs",
+              "RelativeDocumentMoniker": "Controllers\\UsuarioController.cs",
+              "ToolTip": "C:\\Users\\Usuario\\Desktop\\upn9\\tERCEROS\\Sistema-Web-Delivery-master\\Delivery\\Controllers\\UsuarioController.cs",
+              "RelativeToolTip": "Controllers\\UsuarioController.cs",
+              "ViewState": "AQIAAAwAAAAAAAAAAAAAABEAAAA/AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-27T21:01:13.536Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "Usuario.cs",
+              "DocumentMoniker": "C:\\Users\\Usuario\\Desktop\\upn9\\tERCEROS\\Sistema-Web-Delivery-master\\Delivery.Domain\\User\\Usuario.cs",
+              "RelativeDocumentMoniker": "..\\Delivery.Domain\\User\\Usuario.cs",
+              "ToolTip": "C:\\Users\\Usuario\\Desktop\\upn9\\tERCEROS\\Sistema-Web-Delivery-master\\Delivery.Domain\\User\\Usuario.cs",
+              "RelativeToolTip": "..\\Delivery.Domain\\User\\Usuario.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAAAwAAAAQAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-27T19:28:21.336Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "UsuarioBase.cs",
+              "DocumentMoniker": "C:\\Users\\Usuario\\Desktop\\upn9\\tERCEROS\\Sistema-Web-Delivery-master\\Delivery.Repositories\\Implementations\\UsuarioBase.cs",
+              "RelativeDocumentMoniker": "..\\Delivery.Repositories\\Implementations\\UsuarioBase.cs",
+              "ToolTip": "C:\\Users\\Usuario\\Desktop\\upn9\\tERCEROS\\Sistema-Web-Delivery-master\\Delivery.Repositories\\Implementations\\UsuarioBase.cs",
+              "RelativeToolTip": "..\\Delivery.Repositories\\Implementations\\UsuarioBase.cs",
+              "ViewState": "AQIAAA0AAAAAAAAAAAAQwAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-27T22:47:07.156Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "ComidaBase.cs",
+              "DocumentMoniker": "C:\\Users\\Usuario\\Desktop\\upn9\\tERCEROS\\Sistema-Web-Delivery-master\\Delivery.Repositories\\Implementations\\ComidaBase.cs",
+              "RelativeDocumentMoniker": "..\\Delivery.Repositories\\Implementations\\ComidaBase.cs",
+              "ToolTip": "C:\\Users\\Usuario\\Desktop\\upn9\\tERCEROS\\Sistema-Web-Delivery-master\\Delivery.Repositories\\Implementations\\ComidaBase.cs",
+              "RelativeToolTip": "..\\Delivery.Repositories\\Implementations\\ComidaBase.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAAA0AAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-27T22:46:56.408Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "IComidaRepository.cs",
+              "DocumentMoniker": "C:\\Users\\Usuario\\Desktop\\upn9\\tERCEROS\\Sistema-Web-Delivery-master\\Delivery.Repositories\\Interfaces\\IComidaRepository.cs",
+              "RelativeDocumentMoniker": "..\\Delivery.Repositories\\Interfaces\\IComidaRepository.cs",
+              "ToolTip": "C:\\Users\\Usuario\\Desktop\\upn9\\tERCEROS\\Sistema-Web-Delivery-master\\Delivery.Repositories\\Interfaces\\IComidaRepository.cs",
+              "RelativeToolTip": "..\\Delivery.Repositories\\Interfaces\\IComidaRepository.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAAKgAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-27T22:47:38.957Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "ComentarioBase.cs",
+              "DocumentMoniker": "C:\\Users\\Usuario\\Desktop\\upn9\\tERCEROS\\Sistema-Web-Delivery-master\\Delivery.Repositories\\Implementations\\ComentarioBase.cs",
+              "RelativeDocumentMoniker": "..\\Delivery.Repositories\\Implementations\\ComentarioBase.cs",
+              "ToolTip": "C:\\Users\\Usuario\\Desktop\\upn9\\tERCEROS\\Sistema-Web-Delivery-master\\Delivery.Repositories\\Implementations\\ComentarioBase.cs",
+              "RelativeToolTip": "..\\Delivery.Repositories\\Implementations\\ComentarioBase.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAuwA4AAAAkAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-27T22:48:34.424Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "IComentarioRepository.cs",
+              "DocumentMoniker": "C:\\Users\\Usuario\\Desktop\\upn9\\tERCEROS\\Sistema-Web-Delivery-master\\Delivery.Repositories\\Interfaces\\IComentarioRepository.cs",
+              "RelativeDocumentMoniker": "..\\Delivery.Repositories\\Interfaces\\IComentarioRepository.cs",
+              "ToolTip": "C:\\Users\\Usuario\\Desktop\\upn9\\tERCEROS\\Sistema-Web-Delivery-master\\Delivery.Repositories\\Interfaces\\IComentarioRepository.cs",
+              "RelativeToolTip": "..\\Delivery.Repositories\\Interfaces\\IComentarioRepository.cs",
+              "ViewState": "AQIAAAUAAAAAAAAAAAAAAAwAAAApAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-27T22:48:54.807Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "IRepositoryBase.cs",
+              "DocumentMoniker": "C:\\Users\\Usuario\\Desktop\\upn9\\tERCEROS\\Sistema-Web-Delivery-master\\Delivery.Repositories\\Interfaces\\IRepositoryBase.cs",
+              "RelativeDocumentMoniker": "..\\Delivery.Repositories\\Interfaces\\IRepositoryBase.cs",
+              "ToolTip": "C:\\Users\\Usuario\\Desktop\\upn9\\tERCEROS\\Sistema-Web-Delivery-master\\Delivery.Repositories\\Interfaces\\IRepositoryBase.cs",
+              "RelativeToolTip": "..\\Delivery.Repositories\\Interfaces\\IRepositoryBase.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-27T22:51:34.248Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "RepositoryBase.cs",
+              "DocumentMoniker": "C:\\Users\\Usuario\\Desktop\\upn9\\tERCEROS\\Sistema-Web-Delivery-master\\Delivery.Repositories\\Implementations\\RepositoryBase.cs",
+              "RelativeDocumentMoniker": "..\\Delivery.Repositories\\Implementations\\RepositoryBase.cs",
+              "ToolTip": "C:\\Users\\Usuario\\Desktop\\upn9\\tERCEROS\\Sistema-Web-Delivery-master\\Delivery.Repositories\\Implementations\\RepositoryBase.cs",
+              "RelativeToolTip": "..\\Delivery.Repositories\\Implementations\\RepositoryBase.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-27T22:47:02.903Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "PedidoBase.cs",
+              "DocumentMoniker": "C:\\Users\\Usuario\\Desktop\\upn9\\tERCEROS\\Sistema-Web-Delivery-master\\Delivery.Repositories\\Implementations\\PedidoBase.cs",
+              "RelativeDocumentMoniker": "..\\Delivery.Repositories\\Implementations\\PedidoBase.cs",
+              "ToolTip": "C:\\Users\\Usuario\\Desktop\\upn9\\tERCEROS\\Sistema-Web-Delivery-master\\Delivery.Repositories\\Implementations\\PedidoBase.cs",
+              "RelativeToolTip": "..\\Delivery.Repositories\\Implementations\\PedidoBase.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-27T22:47:03.216Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "DeliveryDBInitializer.cs",
+              "DocumentMoniker": "C:\\Users\\Usuario\\Desktop\\upn9\\tERCEROS\\Sistema-Web-Delivery-master\\Delivery.Persistence\\Data\\DeliveryDBInitializer.cs",
+              "RelativeDocumentMoniker": "..\\Delivery.Persistence\\Data\\DeliveryDBInitializer.cs",
+              "ToolTip": "C:\\Users\\Usuario\\Desktop\\upn9\\tERCEROS\\Sistema-Web-Delivery-master\\Delivery.Persistence\\Data\\DeliveryDBInitializer.cs",
+              "RelativeToolTip": "..\\Delivery.Persistence\\Data\\DeliveryDBInitializer.cs",
+              "ViewState": "AQIAABMAAAAAAAAAAAAQwBcAAAApAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-27T22:46:36.776Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "DeliveryDBContextModelSnapshot.cs",
+              "DocumentMoniker": "C:\\Users\\Usuario\\Desktop\\upn9\\tERCEROS\\Sistema-Web-Delivery-master\\Delivery.Persistence\\Migrations\\DeliveryDBContextModelSnapshot.cs",
+              "RelativeDocumentMoniker": "..\\Delivery.Persistence\\Migrations\\DeliveryDBContextModelSnapshot.cs",
+              "ToolTip": "C:\\Users\\Usuario\\Desktop\\upn9\\tERCEROS\\Sistema-Web-Delivery-master\\Delivery.Persistence\\Migrations\\DeliveryDBContextModelSnapshot.cs",
+              "RelativeToolTip": "..\\Delivery.Persistence\\Migrations\\DeliveryDBContextModelSnapshot.cs",
+              "ViewState": "AQIAABMAAAAAAAAAAAAQwAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-27T22:40:29.354Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "CaracteristicaComida.cs",
+              "DocumentMoniker": "C:\\Users\\Usuario\\Desktop\\upn9\\tERCEROS\\Sistema-Web-Delivery-master\\Delivery.Domain\\Food\\CaracteristicaComida.cs",
+              "RelativeDocumentMoniker": "..\\Delivery.Domain\\Food\\CaracteristicaComida.cs",
+              "ToolTip": "C:\\Users\\Usuario\\Desktop\\upn9\\tERCEROS\\Sistema-Web-Delivery-master\\Delivery.Domain\\Food\\CaracteristicaComida.cs",
+              "RelativeToolTip": "..\\Delivery.Domain\\Food\\CaracteristicaComida.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-27T22:24:07.212Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "DeliveryDBContext.cs",
+              "DocumentMoniker": "C:\\Users\\Usuario\\Desktop\\upn9\\tERCEROS\\Sistema-Web-Delivery-master\\Delivery.Persistence\\Data\\DeliveryDBContext.cs",
+              "RelativeDocumentMoniker": "..\\Delivery.Persistence\\Data\\DeliveryDBContext.cs",
+              "ToolTip": "C:\\Users\\Usuario\\Desktop\\upn9\\tERCEROS\\Sistema-Web-Delivery-master\\Delivery.Persistence\\Data\\DeliveryDBContext.cs",
+              "RelativeToolTip": "..\\Delivery.Persistence\\Data\\DeliveryDBContext.cs",
+              "ViewState": "AQIAADIAAAAAAAAAAAAgwFAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-27T20:01:49.864Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "Delivery.Persistence",
+              "DocumentMoniker": "C:\\Users\\Usuario\\Desktop\\upn9\\tERCEROS\\Sistema-Web-Delivery-master\\Delivery.Persistence\\Delivery.Persistence.csproj",
+              "RelativeDocumentMoniker": "..\\Delivery.Persistence\\Delivery.Persistence.csproj",
+              "ToolTip": "C:\\Users\\Usuario\\Desktop\\upn9\\tERCEROS\\Sistema-Web-Delivery-master\\Delivery.Persistence\\Delivery.Persistence.csproj",
+              "RelativeToolTip": "..\\Delivery.Persistence\\Delivery.Persistence.csproj",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-05-27T20:22:06.176Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 32,
+              "Title": "PedidoController.cs",
+              "DocumentMoniker": "C:\\Users\\Usuario\\Desktop\\upn9\\tERCEROS\\Sistema-Web-Delivery-master\\Delivery\\Controllers\\PedidoController.cs",
+              "RelativeDocumentMoniker": "Controllers\\PedidoController.cs",
+              "ToolTip": "C:\\Users\\Usuario\\Desktop\\upn9\\tERCEROS\\Sistema-Web-Delivery-master\\Delivery\\Controllers\\PedidoController.cs",
+              "RelativeToolTip": "Controllers\\PedidoController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-27T21:01:54.335Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 33,
+              "Title": "EditarDatos.cshtml",
+              "DocumentMoniker": "C:\\Users\\Usuario\\Desktop\\upn9\\tERCEROS\\Sistema-Web-Delivery-master\\Delivery\\Views\\Usuario\\EditarDatos.cshtml",
+              "RelativeDocumentMoniker": "Views\\Usuario\\EditarDatos.cshtml",
+              "ToolTip": "C:\\Users\\Usuario\\Desktop\\upn9\\tERCEROS\\Sistema-Web-Delivery-master\\Delivery\\Views\\Usuario\\EditarDatos.cshtml",
+              "RelativeToolTip": "Views\\Usuario\\EditarDatos.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-05-27T22:26:03.836Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 36,
+              "Title": "20240527202709_newMigra.cs",
+              "DocumentMoniker": "C:\\Users\\Usuario\\Desktop\\upn9\\tERCEROS\\Sistema-Web-Delivery-master\\Delivery.Persistence\\Migrations\\20240527202709_newMigra.cs",
+              "RelativeDocumentMoniker": "..\\Delivery.Persistence\\Migrations\\20240527202709_newMigra.cs",
+              "ToolTip": "C:\\Users\\Usuario\\Desktop\\upn9\\tERCEROS\\Sistema-Web-Delivery-master\\Delivery.Persistence\\Migrations\\20240527202709_newMigra.cs",
+              "RelativeToolTip": "..\\Delivery.Persistence\\Migrations\\20240527202709_newMigra.cs",
+              "ViewState": "AQIAAOcAAAAAAAAAAAAAAAwBAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-27T20:27:09.446Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 34,
+              "Title": "20240527203031_migra.cs",
+              "DocumentMoniker": "C:\\Users\\Usuario\\Desktop\\upn9\\tERCEROS\\Sistema-Web-Delivery-master\\Delivery.Persistence\\Migrations\\20240527203031_migra.cs",
+              "RelativeDocumentMoniker": "..\\Delivery.Persistence\\Migrations\\20240527203031_migra.cs",
+              "ToolTip": "C:\\Users\\Usuario\\Desktop\\upn9\\tERCEROS\\Sistema-Web-Delivery-master\\Delivery.Persistence\\Migrations\\20240527203031_migra.cs",
+              "RelativeToolTip": "..\\Delivery.Persistence\\Migrations\\20240527203031_migra.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-27T20:30:31.857Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 35,
+              "Title": "appsettings.Development.json",
+              "DocumentMoniker": "C:\\Users\\Usuario\\Desktop\\upn9\\tERCEROS\\Sistema-Web-Delivery-master\\Delivery\\appsettings.Development.json",
+              "RelativeDocumentMoniker": "appsettings.Development.json",
+              "ToolTip": "C:\\Users\\Usuario\\Desktop\\upn9\\tERCEROS\\Sistema-Web-Delivery-master\\Delivery\\appsettings.Development.json",
+              "RelativeToolTip": "appsettings.Development.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-05-27T20:30:10Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 37,
+              "Title": "Delivery",
+              "DocumentMoniker": "C:\\Users\\Usuario\\Desktop\\upn9\\tERCEROS\\Sistema-Web-Delivery-master\\Delivery\\Delivery.csproj",
+              "RelativeDocumentMoniker": "Delivery.csproj",
+              "ToolTip": "C:\\Users\\Usuario\\Desktop\\upn9\\tERCEROS\\Sistema-Web-Delivery-master\\Delivery\\Delivery.csproj",
+              "RelativeToolTip": "Delivery.csproj",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-05-27T20:22:20.403Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 38,
+              "Title": "Pedido.cs",
+              "DocumentMoniker": "C:\\Users\\Usuario\\Desktop\\upn9\\tERCEROS\\Sistema-Web-Delivery-master\\Delivery.Domain\\Order\\Pedido.cs",
+              "RelativeDocumentMoniker": "..\\Delivery.Domain\\Order\\Pedido.cs",
+              "ToolTip": "C:\\Users\\Usuario\\Desktop\\upn9\\tERCEROS\\Sistema-Web-Delivery-master\\Delivery.Domain\\Order\\Pedido.cs",
+              "RelativeToolTip": "..\\Delivery.Domain\\Order\\Pedido.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-27T19:55:05.795Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 40,
+              "Title": "Sexo.cs",
+              "DocumentMoniker": "C:\\Users\\Usuario\\Desktop\\upn9\\tERCEROS\\Sistema-Web-Delivery-master\\Delivery.Domain\\User\\Sexo.cs",
+              "RelativeDocumentMoniker": "..\\Delivery.Domain\\User\\Sexo.cs",
+              "ToolTip": "C:\\Users\\Usuario\\Desktop\\upn9\\tERCEROS\\Sistema-Web-Delivery-master\\Delivery.Domain\\User\\Sexo.cs",
+              "RelativeToolTip": "..\\Delivery.Domain\\User\\Sexo.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-27T19:51:22.841Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 39,
+              "Title": "Direccion.cs",
+              "DocumentMoniker": "C:\\Users\\Usuario\\Desktop\\upn9\\tERCEROS\\Sistema-Web-Delivery-master\\Delivery.Domain\\Order\\Direccion.cs",
+              "RelativeDocumentMoniker": "..\\Delivery.Domain\\Order\\Direccion.cs",
+              "ToolTip": "C:\\Users\\Usuario\\Desktop\\upn9\\tERCEROS\\Sistema-Web-Delivery-master\\Delivery.Domain\\Order\\Direccion.cs",
+              "RelativeToolTip": "..\\Delivery.Domain\\Order\\Direccion.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-27T19:56:31.264Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 41,
+              "Title": "CategoriaComida.cs",
+              "DocumentMoniker": "C:\\Users\\Usuario\\Desktop\\upn9\\tERCEROS\\Sistema-Web-Delivery-master\\Delivery.Domain\\Food\\CategoriaComida.cs",
+              "RelativeDocumentMoniker": "..\\Delivery.Domain\\Food\\CategoriaComida.cs",
+              "ToolTip": "C:\\Users\\Usuario\\Desktop\\upn9\\tERCEROS\\Sistema-Web-Delivery-master\\Delivery.Domain\\Food\\CategoriaComida.cs",
+              "RelativeToolTip": "..\\Delivery.Domain\\Food\\CategoriaComida.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-27T19:25:19.504Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

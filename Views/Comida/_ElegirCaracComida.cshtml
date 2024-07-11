@@ -1,0 +1,58 @@
+﻿@using Delivery.Domain.Food;
+@model Comida;
+
+@{
+    IEnumerable<CaracteristicaComida> comidaCaracteristicas = Enumerable.Empty<CaracteristicaComida>();
+    if (ViewBag.caracteristicas2 is not null)
+    {
+        comidaCaracteristicas = ViewBag.caracteristicas2;
+    }
+
+}
+
+@*Elegir característica*@
+<div class="modal fade" id="elegirCaracteristicaComida" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">¿Qué quisieras agregar?</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                @if (comidaCaracteristicas.Count() == 0)
+                {
+                    <div class="alert alert-primary" role="alert">
+                        @Model.Nombre no tiene características para agregar
+                    </div>
+                }
+                else{
+                <span id="validacionCaracteristicas" class="alert-danger mb-2"></span>
+                <div class="col input-group">
+                    <select class="form-select" id="SeleccionarCaracteristicas">
+                        <option class="overflow-auto" selected disabled hidden value="">Agrega características</option>
+                        @foreach (var item in comidaCaracteristicas)
+                        {
+                            <option value="@item.Id" title="@item.Detalle S/. @item.Precio" data-price="@item.Precio">@item.Nombre</option>
+                        }
+                    </select>
+                    <button class="btn btn-secondary" id="Agregarcaracteristica">Agregar</button>
+                </div>
+                <ul class="list-group mt-3 overflow-auto" id="listadoCaracteristicas">
+                    @* 
+                    <li class="list-group-item border d-flex">
+                        <p class="p-0 m-0 flex-grow-1 overflow-auto">
+                            An active item
+                        </p>
+                        <button type="button" class="btn-close quitar" data-id="num" ></button>
+                    </li>
+                    *@
+                </ul>
+                }
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-success" data-bs-dismiss="modal" id="guardarpedido">Pedir</button>
+            </div>
+        </div>
+    </div>
+</div>

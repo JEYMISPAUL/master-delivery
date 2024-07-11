@@ -1,0 +1,478 @@
+﻿@using Delivery.Domain.Food;
+@{
+    ViewBag.CaracteristicasComida = Enum.GetValues(typeof(CategoriaComida)).Cast<CategoriaComida>().ToList();
+    var listaCategorias = ViewBag.CaracteristicasComida;
+    //Cambiar cuando se edite la comida
+}
+
+<!--Body-->
+<div class="container mt-3">
+    <h1>Menú del día</h1>
+    <div class="row container">
+
+        @*Cabecera*@
+        <div class="row mb-3">
+            <div class="col">
+                <select class="form-select" id="select_categorias">
+                    <option selected value="-1">Todo</option>
+                    @foreach(CategoriaComida item in listaCategorias)
+                    {
+                        <option value="@Convert.ToInt32(item)">@item.ToString()</option>
+                    }
+                </select>
+            </div>
+            <div class="col input-group">
+                <input type="text" class="form-control" id="filtro_texto" placeholder="Busqueda por nombre...">
+                <button class="btn btn-light" id="filtro_buscar">Buscar</button>
+            </div>
+        </div>
+
+        @*Agregar Característica de comida*@
+        <div class="row">
+            <div class="col">
+                <button id="Create" class="btn btn-success">Agregar comida</button>
+                <a class="btn btn-secondary" asp-action="CaracteristicaComida">Agregar Característica de comida</a>
+            </div>
+        </div>
+
+
+
+
+        @*Lista de comidas*@
+        <div id="contenedor_lista_comidas">
+        </div>
+
+
+
+    </div>
+</div>
+
+
+<br>
+<br>
+
+<div id="toastContainer" data-delay="500" style="position: absolute; top: 0; right: 0;">
+    <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header">
+            <strong class="me-auto">Error</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+        <div class="toast-body">
+            El stock no puede ser negativo ni un número muy grande
+        </div>
+    </div>
+</div>
+
+<!--navi-->
+
+<div class="container" style="width: 300px;">
+    <nav aria-label="Page navigation example">
+            <ul class="pagination" id="navi">
+            @*
+            <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+            <li class="page-item"><a class="page-link" href="#">1</a></li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item"><a class="page-link" href="#">Next</a></li>
+            *@
+        </ul>
+    </nav>
+</div>
+
+
+<!--Eliminar comida-->
+<div class="modal fade" id="EliminarComida" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Advertencia</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                ¿Deseas eliminar este elemento?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                <form asp-action="EliminarComida">
+                    <input type="hidden" name="idcomida" id="eliminarComida" />
+                    <button type="submit" class="btn btn-danger">Eliminar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Comida registro y edit-->
+<div id="ComidaRegistro">
+    @await Html.PartialAsync("_ModificarComida", new Comida());
+</div>
+
+
+
+
+@if (!ViewBag.modeloValido)
+{
+    <script>
+        document.getElementById("RegistrarComida").classList.add("show");
+    </script>
+}
+
+@section Scripts{
+    <script>
+        var listajax = []; //Lista de indices de las características por comida
+        var paginaActual = 1;
+        var TotalPaginas = 0;
+        var categoria_seleccionada = null;
+        var busqueda = "";
+
+        //pag
+        function Asignar_Paginacion() {
+            let paginaciones = "";
+
+            //Anterior
+            if (paginaActual > 1) {
+                paginaciones += `
+                        <li class="page-item"><a class="page-link" id="ant" href="#">
+                            <i class="fa-solid fa-arrow-left"></i>
+                        </a></li>`;
+            }
+            else {
+                paginaciones += `
+                        <li class="page-item disabled"><a class="page-link" id="ant" href="#">
+                            <i class="fa-solid fa-arrow-left"></i>
+                        </a></li>`;
+            }
+
+
+            //Lógica números
+            if (TotalPaginas <= 3) {
+                for (let i = 1; i <= TotalPaginas; i++) {
+                    if (i == paginaActual) {
+                        paginaciones += `<li class="page-item active"><a class="page-link" href="#">${i}</a></li>`;
+                    }
+                    else {
+                        paginaciones += `<li class="page-item"><a class="page-link pe-auto pag" href="#">${i}</a></li>`;
+                    }
+                }
+            }
+            else {
+                for (let i = Math.max(1, paginaActual - 1); i <= Math.min(TotalPaginas, paginaActual + 1); i++) {
+                    if (i == paginaActual) {
+                        paginaciones += `<li class="page-item active"><a class="page-link" href="#">${i}</a></li>`;
+                    }
+                    else {
+                        paginaciones += `<li class="page-item"><a class="page-link pe-auto pag" href="#">${i}</a></li>`;
+                    }
+                }
+            }
+
+
+            //Siguiente
+            if (paginaActual < TotalPaginas) {
+                paginaciones += `
+                        <li class="page-item"><a class="page-link" id="sig" href="#">
+                             <i class="fa-solid fa-arrow-right"></i>
+                        </a></li>`;
+            }
+            else {
+                paginaciones += `
+                        <li class="page-item disabled"><a class="page-link" id="sig" href="#">
+                                <i class="fa-solid fa-arrow-right"></i>
+                        </a></li>`;
+            }
+
+
+            //Aplicar al elemento html de paginación
+            $('#navi').html(paginaciones);
+        }
+
+        if ("@ViewBag.modo" == "Crear") {
+
+            $('#tituloCanvas').text('Agregar comida');
+            $('#Modificar').text('Crear');
+            $('#Modificar').removeClass('btn-info');
+            $('#Modificar').addClass('btn-success');
+
+            $('#agregarCaracteristica').click(AgregarCaracteristicas);
+            $('#formulario').on('submit', submitFormAdd);
+        }
+        else if ("@ViewBag.modo" == "Editar") {
+            $('#tituloCanvas').text('Editar comida');
+            $('#Modificar').text('Editar');
+            $('#Modificar').removeClass('btn-success');
+            $('#Modificar').addClass('btn-info');
+
+            $('#agregarCaracteristica').click(AgregarCaracteristicas);
+            $('#formulario').on('submit', submitFormEdit);
+
+            //concatenar
+            let antlistajax = JSON.parse($('#arrayids').val());
+            listajax = listajax.concat(antlistajax);
+
+            $("#RegistrarComida").on("hidden.bs.offcanvas", function () {
+                listajax = []
+            });
+        }
+
+
+        function FiltroComidas(){
+            $.ajax({
+                url: '@Url.Action("_ListaComidas")',
+                method: 'GET',
+                data: { busqueda: busqueda, CategoriaComida: categoria_seleccionada, page: paginaActual },
+                success: function(data){
+                    $('#contenedor_lista_comidas').html(data.html); //Mostrar lista de comidas filtradas
+                    TotalPaginas = data.paginas_totales; //Actualizar el total de paginas
+                    Asignar_Paginacion();//Re asignar paginación
+
+                    //Asignación de las paginadas
+                    $('#ant').on("click", function () {
+                        paginaActual--;
+                        FiltroComidas();
+                        $("html, body").animate({ scrollTop: 0 }, 100);
+                    });
+                    $('#sig').on("click", function () {
+                        paginaActual++;
+                        FiltroComidas();
+                        $("html, body").animate({ scrollTop: 0 }, 100);
+                    });
+                    $('.page-link.pe-auto.pag').on("click", function () {
+                        let num_pag = parseInt($(this).text());
+                        paginaActual = num_pag;
+                        FiltroComidas();
+                        $("html, body").animate({ scrollTop: 0 }, 100);
+                    });
+
+                    //////////////////////////////////////
+
+
+                    //Actualizar stock
+                    $('.btn.btn-secondary.stock').click(function () {
+                        let id = $(this).data("dataid");
+                        let form = $(this).prev(".formstock");
+                        let valStock = form.find('input[name = "nuevoStock"]').val();
+                        if ((valStock < 0) || (valStock > 899)) {
+                            let toast = new bootstrap.Toast($('#toastContainer .toast:last'));
+                            toast.show();
+                        }
+                        else {
+                            form.attr("action", "/Comida/EditarStockComida");
+                            form.submit();
+                        }
+                    });
+
+
+                    //Delete jquery
+                    $('.btn.btn-danger.cerrar').click(function () {
+                        let idcomida = $(this).data("id");
+                        $('#eliminarComida').attr('value', idcomida);
+                    });
+
+                    //Edit jquery
+                    $('.btn.btn-primary').click(function () {
+                        let idcomida = $(this).data("id");
+
+                        $.ajax({
+                            type: 'GET',
+                            url: '/Comida/_ModificarComida',
+                            data: { id: idcomida },
+                            dataType: 'html',
+                            async: true,
+                            success: function (result) {
+                                $('#ComidaRegistro').html(result);
+                                $('#formulario').attr("action", "/Comida/EditarComida");
+                                $('#RegistrarComida').offcanvas('show');
+
+                                $('#tituloCanvas').text('Editar comida');
+                                $('#Modificar').text('Editar');
+                                $('#Modificar').removeClass('btn-success');
+                                $('#Modificar').addClass('btn-info');
+
+                                $('#agregarCaracteristica').click(AgregarCaracteristicas);
+                                $('.btn.btn-close').on("click", EliminarCaracteristica);
+                                $('#formulario').on('submit', submitFormEdit);
+
+                                //concatenar
+                                let antlistajax = JSON.parse($('#arrayids').val());
+                                listajax = listajax.concat(antlistajax);
+
+                                $("#RegistrarComida").on("hidden.bs.offcanvas", function () {
+                                    listajax = []
+                                });
+                            }
+                        });
+                    });
+
+                    //Create jquery
+                    $('#Create').click(function () {
+
+                        $.ajax({
+                            type: 'GET',
+                            url: '/Comida/_ModificarComida',
+                            data: { id: 0 },
+                            dataType: 'html',
+                            async: true,
+                            success: function (result) {
+                                $('#ComidaRegistro').html(result);
+                                $('#formulario').attr("action", "/Comida/AgregarComida");
+                                $('#RegistrarComida').offcanvas('show');
+
+                                $('#tituloCanvas').text('Agregar comida');
+                                $('#Modificar').text('Crear');
+                                $('#Modificar').removeClass('btn-info');
+                                $('#Modificar').addClass('btn-success');
+
+                                $('#agregarCaracteristica').click(AgregarCaracteristicas);
+                                $('.btn.btn-close').on("click", EliminarCaracteristica);
+
+                                $('#formulario').on('submit', submitFormAdd);
+                            }
+                        });
+                    });
+
+                }
+            });
+        }
+
+        FiltroComidas();
+
+        //Filtro seleccionar categorías
+        $('#select_categorias').change(function () {
+
+            paginaActual = 1;
+
+            if (parseInt($(this).val()) == -1) {
+                categoria_seleccionada = null; //TODO
+            }
+            else {
+                categoria_seleccionada = $(this).val(); //Categorizado
+            }
+            FiltroComidas();
+        })
+
+        //Filtro por busqueda escrita
+        $('#filtro_buscar').on("click", function () {
+            paginaActual = 1;
+            busqueda = $('#filtro_texto').val();
+            FiltroComidas()
+        });
+
+        //Eliminar comida
+        function EliminarCaracteristica(){
+            let borrar = $(this).closest("li").find('a').data('id');
+            listajax = listajax.filter(num => num != borrar);
+            $(this).closest("li").remove();
+            console.log(listajax);
+        }
+
+        //Agregar caracteristicas dentro del off canvas
+        function AgregarCaracteristicas(){
+            let numero = $('#selectCaracteristica').val();
+            if (numero == null) {
+                $('#valCaracteristicas').text('Necesita marcar una de las opciones');
+                setTimeout(function () {
+                    $("#valCaracteristicas").fadeOut();
+                }, 1500);
+                setTimeout(function () {
+                    // Mostrar el elemento nuevamente
+                    $('#valCaracteristicas').text('');
+                    $("#valCaracteristicas").fadeIn();
+                }, 1500);
+            }
+            else {
+                let elementos = $("#listaCaracteristicas").find("li");
+
+                $('#valCaracteristicas').text('');
+                let valor = $('#selectCaracteristica').find("option:selected").html();
+                let valorRepetido = false;
+
+                listajax.forEach((x) => {
+                    if (x == numero) valorRepetido = true
+                });
+
+
+                if (!valorRepetido) {
+
+                    if ($('#listaCaracteristicas').find("li").length < 5) {
+                        let li = $('<li class="list-group-item border d-flex"> <p class="p-0 m-0 flex-grow-1 overflow-auto">' + valor + '</p>');
+                        let buttonclose = $('<a type="button" class="btn btn-close" data-id="' + numero + '"></a>');
+                        buttonclose.on("click", EliminarCaracteristica);
+
+                        li.append(buttonclose);
+                        $('#listaCaracteristicas').append(li);
+                        console.log(numero);
+                        listajax.push(parseInt(numero));
+                    }
+                    else{
+                        $('#valCaracteristicas').text('Solo puedes registrar un máximo de 5 características');
+                        setTimeout(function () {
+                            $("#valCaracteristicas").fadeOut();
+                        }, 1500);
+                        setTimeout(function () {
+                            $('#valCaracteristicas').text('');
+                            $("#valCaracteristicas").fadeIn();
+                        }, 1500);
+                    }
+                }
+                else {
+                    $('#valCaracteristicas').text('Esta característica ya ha sido registrada');
+                    setTimeout(function () {
+                        $("#valCaracteristicas").fadeOut();
+                    }, 1500);
+                    setTimeout(function () {
+                        $('#valCaracteristicas').text('');
+                        $("#valCaracteristicas").fadeIn();
+                    }, 1500);
+                }
+
+            }
+
+        }
+
+        //Agregar comida
+        function submitFormAdd(evt) {
+            //Validar categoria
+            let num = $('#selectCategoria').val();
+
+            if ($('#fileimage').val() === "") {
+                $('#valImagen').text('No ha seleccionado una imagen');
+                evt.preventDefault();
+            }
+            else{
+                $('#valImagen').text('');
+            }
+
+            if (num == null) {
+                $('#valCategoria').text('Necesita marcar una de las opciones');
+                evt.preventDefault();
+            }
+            else {
+                $('#valCategoria').text('');
+                $('#arrayids').val(JSON.stringify(listajax)) //Pasar sin ajax
+            }
+
+        }
+        
+        //Editar comida
+        function submitFormEdit(evt){
+            //Validar categoria
+            let num = $('#selectCategoria').val();
+
+            if ($('#fileimage').val() === "") {
+                $('#changeImageval').val('no')
+            }
+
+            if (num == null) {
+                $('#valCategoria').text('Necesita marcar una de las opciones');
+                evt.preventDefault();
+            }
+            else {
+                $('#valCategoria').text('');
+                $('#arrayids').val(JSON.stringify(listajax)) //Pasar sin ajax
+
+            }
+
+        }
+
+    </script>
+}

@@ -1,0 +1,279 @@
+﻿@using Delivery.Domain.User;
+@model Usuario;
+@{
+    var listaGeneros = Enum.GetValues(typeof(Sexo)).Cast<Sexo>().ToList();
+    int i = -1;
+    ViewBag.selectValido = -1;
+    string tipo = ViewBag.tipo_e;
+}
+
+<style>
+    body {
+        background-image: url('../assets/FondoLogin.png');
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    .tarjeta {
+        border-radius: 15px;
+        width: max-content;
+        height: max-content;
+        display: flex;
+        align-items: center;
+    }
+</style>
+
+<div class="container">
+    <div class="card mb-3 mt-4 tarjeta offset-1">
+        <div class="row">
+            <div class="col-md-4" style="padding-top: 110px;">
+                <svg class="bd-placeholder-img rounded-circle mb-3" width="350" height="350" role="img">
+                    <defs>
+                        <pattern id="usuario" width="100%" height="100%">
+                            <image width="100%" xlink:href="../assets/Registro.png" />
+                        </pattern>
+                    </defs>
+                    <rect width="100%" height="100%" fill="url(#usuario)" />
+                </svg>
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h2 class="card-title mb-3" style="margin: 10px; font-family: Arial Rounded MT;">Registrar empleado</h2>
+
+                    @if (@ViewBag.EmailRepetido != null)
+                    {
+                        <div class="alert alert-danger" role="alert">
+                            @ViewBag.EmailRepetido
+                        </div>
+                    }
+                    @if (@ViewBag.PhoneRepetido != null)
+                    {
+                        <div class="alert alert-danger" role="alert">
+                            @ViewBag.PhoneRepetido
+                        </div>
+                    }
+                    <form id="formulario" asp-action="RegisterEmpleados">
+                        <div asp-validation-summary="ModelOnly" class="invalid-tooltip"></div>
+                        <input type="hidden" id="in_tipo" name="tipo"/>
+
+                        <div class="form-group">
+                            <div class="input-group mb-3">
+                                <!--Apellido-->
+                                <span class="input-group-text"> <i class="fa-solid fa-user"></i></span>
+                                <div class="form-floating">
+                                    <input asp-for="Surname" id="insurname" type="text" class="form-control" placeholder="name">
+                                    <label>Apellidos</label>
+                                    <div class="invalid-tooltip">
+                                        <span asp-validation-for="Surname"></span>
+                                    </div>
+                                </div>
+
+                                <!--Nombre-->
+                                <div class="form-floating">
+                                    <input asp-for="Name" id="inname" type="text" class="form-control" placeholder="name">
+                                    <label>Nombre</label>
+                                    <div class="invalid-tooltip">
+                                        <span asp-validation-for="Name"></span>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="input-group mb-3">
+
+                                <!--Telefono-->
+                                <span class="input-group-text"> <i class="fa-solid fa-phone"></i> </span>
+                                <div class="form-floating" style="width: 420px">
+                                    <input asp-for="Phone" id="inphone" type="tel" class="form-control" placeholder="telefono" maxlength="9">
+                                    <label>Telefono</label>
+                                    <div class="invalid-tooltip">
+                                        <span asp-validation-for="Phone"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <div class="input-group mb-3">
+
+                                <!--Email-->
+                                <span class="input-group-text"> <i class="fa-regular fa-envelope"></i> </span>
+                                <div class="form-floating" style="width:420px">
+                                    <input asp-for="Email" id="inemail" type="email" class="form-control" placeholder="example@email.com">
+                                    <label>Correo electrónico</label>
+                                    <div class="invalid-tooltip">
+                                        <span asp-validation-for="Email"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <div class="input-group mb-3" style="width:460px">
+
+                                <!--Genero-->
+                                <span class="input-group-text"> <i class="fa-solid fa-genderless"></i> </span>
+                                <select asp-for="Sexo" id="selectGenero" class="form-select form-control">
+                                    <option disabled selected hidden value="">Seleccione un género</option>
+                                    @foreach (Sexo item in listaGeneros)
+                                    {
+                                        i++;
+                                        <option value="@i">@item</option>
+                                    }
+                                </select>
+                                <div class="invalid-tooltip">
+                                    <span id="validarSexo"></span>
+                                </div>
+                                <!--Fecha de nacimiento-->
+                                <div class="form-floating" style="width:200px">
+                                    <input asp-for="DateBirth" id="inDateBirth" type="date" class="form-control">
+                                    <label>Fecha de nacimiento</label>
+                                    <div class="invalid-tooltip">
+                                        <span id="validarFechaNacimiento"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="input-group mb-3">
+
+                                <!--Contraseña-->
+                                <span class="input-group-text"> <i class="fa-solid fa-asterisk"></i> </span>
+                                <div class="form-floating" style="width:420px">
+                                    <input asp-for="Password" id="inpassword" type="password" class="form-control" placeholder="example@email.com">
+                                    <label>Contraseña</label>
+                                    <div class="invalid-tooltip">
+                                        <span asp-validation-for="Password"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="form-check col checkIn">
+                                <input class="form-check-input" id="c_repartidor" data-name="Repartidor" name="flexRadioDisabled" type="radio">
+                                <label class="form-check-label">
+                                    Repartidor
+                                </label>
+                            </div>
+                            <div class="form-check col checkIn">
+                                <input class="form-check-input" id="c_chef" data-name="Chef" name="flexRadioDisabled" type="radio">
+                                <label class="form-check-label">
+                                    Chef
+                                </label>
+                            </div>
+                            <div class="form-check col checkIn">
+                                <input class="form-check-input" id="c_administrador" data-name="Administrador" name="flexRadioDisabled" type="radio">
+                                <label class="form-check-label">
+                                    Administrador
+                                </label>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group mt-3">
+                            <button type="submit" class="btn btn-primary btn-lg mb-3 col-10">Registrarse</button> <br />
+                        </div>
+
+                    </form>
+
+                    <a class="icon-link offset-3" asp-action="Login">
+                        ¿Ya tienes una cuenta?
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <script>
+
+        if ('@tipo' == 'Repartidor') {
+            $('#c_repartidor').prop('checked', true);
+        }
+        else if ('@tipo' == 'Chef') {
+            $('#c_chef').prop('checked', true);
+        }
+        else if ('@tipo' == 'Administrador') {
+            $('#c_administrador').prop('checked', true);
+        }
+        else{
+            $('#c_repartidor').prop('checked', true);
+        }
+
+        //Función generica
+        function validarCampos(condicional, elemento) {
+            if ((condicional === "") || condicional == 'false') elemento.removeClass('is-invalid');
+            else {
+                elemento.addClass('is-invalid');
+                setTimeout(function () {
+                    elemento.removeClass('is-invalid');
+                }, 4000);
+            }
+        }
+
+        //Validar inputs
+        $(document).ready(function () {
+            let condSurname = "@ViewBag.SurnameError".toLowerCase();
+            let condName = "@ViewBag.NameError".toLowerCase();
+            let condPhone = "@ViewBag.PhoneError".toLowerCase();
+            let condEmail = "@ViewBag.EmailError".toLowerCase();
+            let condPassword = "@ViewBag.PasswordError".toLowerCase();
+
+            validarCampos(condSurname, $('#insurname'))
+            validarCampos(condName, $('#inname'))
+            validarCampos(condPhone, $('#inphone'))
+            validarCampos(condEmail, $('#inemail'))
+            validarCampos(condPassword, $('#inpassword'))
+        });
+
+        //Genero y fecha de nacimiento
+        $('#formulario').on('submit', function (evt) {
+
+            let num = $('#selectGenero').val();
+
+            if (num == null) {
+                $('#selectGenero').addClass('is-invalid');
+                setTimeout(function () {
+                    $('#selectGenero').removeClass('is-invalid');
+                }, 3000);
+                $('#validarSexo').text('Necesita marcar una de las opciones');
+                evt.preventDefault();
+            }
+            else {
+                $('#selectGenero').removeClass('is-invalid');
+                $('#validarSexo').text('');
+            }
+
+            /////////////////////////////////////////////
+
+            let fechaNacimiento = new Date($('#inDateBirth').val());
+            let fechaActual = new Date();
+            let edad = fechaActual.getFullYear() - fechaNacimiento.getFullYear();
+
+            if (edad < 18 || isNaN(edad)) {
+                $('#inDateBirth').addClass('is-invalid');
+                setTimeout(function () {
+                    $('#inDateBirth').removeClass('is-invalid');
+                }, 3000);
+                $('#validarFechaNacimiento').text('Necesita ser mayor a 18 años para poder registrarse');
+                evt.preventDefault();
+            }
+            else {
+                $('#validarFechaNacimiento').text('');
+                $('#inDateBirth').removeClass('is-invalid');
+
+                let opcionSeleccionadaTipo = $('input[name="flexRadioDisabled"]:checked').data("name");
+
+                $('#in_tipo').val(opcionSeleccionadaTipo);
+            }
+        });
+
+    </script>
+}

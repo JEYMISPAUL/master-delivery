@@ -1,0 +1,196 @@
+﻿@using Delivery.Domain.User
+@{
+    IEnumerable<Usuario> lista = ViewBag.usuarios;
+    string tipo = ViewBag.tipo;
+    var listaRoles = Enum.GetValues(typeof(Rol)).Cast<Rol>().ToList();
+}
+
+
+<body>
+    <div class="container mt-5">
+
+        <h3>Panel de administración de usuarios</h3>
+
+        <div class="row">
+
+            <ul class="nav nav-tabs">
+                <li class="nav-item">
+                    <a class="nav-link" id="tcliente" asp-action="TablaUsuarios" asp-route-tipo="Cliente">Clientes</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="trepartidor" asp-action="TablaUsuarios" asp-route-tipo="Repartidor">Repartidores</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="tchef" asp-action="TablaUsuarios" asp-route-tipo="Chef">Chefs</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="tadministrador" asp-action="TablaUsuarios" asp-route-tipo="Administrador">Administradores</a>
+                </li>
+            </ul>
+
+            <hr />
+
+            @if (tipo != "Cliente")
+            {
+                <div class="col mt-3 mb-3">
+                    <a class="btn btn-primary" asp-action="RegisterEmpleados" asp-route-tipo="@tipo">Agregar nuevo</a>
+                </div>
+            }
+
+            <table id="tabla_usuarios" class="table table-striped table-responsive table-hover mt-3">
+                <thead>
+                    <tr>
+                        <th scope="col">Codigo</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Teléfono</th>
+                        <th scope="col">Sexo</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Acción</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in lista)
+                    {
+                        <tr>
+                            <th scope="row">@item.Id</th>
+                            <td>@item.Surname @item.Name</td>
+                            <td>@item.Phone</td>
+                            <td>@item.Sexo</td>
+                            <td>@item.Email</td>
+                            <td>
+                                <div class="hstack gap-1">
+                                    @if (item.Bloqueado)
+                                    {
+                                        <button data-id="@item.Id" class="btn btn-primary desbloquear">Desbloquear</button>
+                                    }
+                                    else
+                                    {
+                                        <button data-id="@item.Id" class="btn btn-danger bloquear">Bloquear</button>
+                                    }
+
+                                    <select data-id="@item.Id" class="form-select roles">
+                                        <option selected disabled hidden value="">Cambiar Rol</option>
+                                        @foreach (var rol in listaRoles)
+                                        {
+                                            <option value="@Convert.ToInt32(rol)">@rol.ToString()</option>
+                                        }
+                                    </select>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+</body>
+
+@section Scripts{
+    <script>
+
+        $("#tabla_usuarios").DataTable({
+            "language": {
+                url: "https://cdn.datatables.net/plug-ins/1.13.7/i18n/es-ES.json"
+            }
+        });
+
+        if('@tipo' == 'Cliente'){
+            $('#tcliente').addClass('active');
+        }
+        else if('@tipo' == 'Repartidor'){
+            $('#trepartidor').addClass('active');
+        }
+        else if('@tipo' == 'Chef'){
+            $('#tchef').addClass('active');
+        }
+        else if('@tipo' == 'Administrador'){
+            $('#tadministrador').addClass('active');
+        }
+        else{
+            $('#tcliente').addClass('active');
+        }
+
+
+        //Bloquear usuario
+        $('.btn.btn-danger.bloquear').on("click", function () {
+            let UID = $(this).data("id");
+
+            $.ajax({
+                type: 'GET',
+                url: '@Url.Action("Bloquear_Usuario", "Usuario")',
+                dataType: 'json',
+                async: true,
+                data: { UID: UID },
+                success: function (data) {
+                    Swal.fire({
+                        title: 'Usuario Bloqueado',
+                        text: 'El usuario ha sido bloqueado correctamente.',
+                        icon: 'warning',
+                        willClose: (willClose) => {
+                            window.location.href = '/Usuario/TablaUsuarios';
+                        },
+                        confirmButtonColor: '#3085d6',
+                        confirmButtonText: 'Aceptar'
+                    })
+                }
+            });
+        });
+
+        //Desbloquear usuario
+        $('.btn.btn-primary.desbloquear').on("click", function () {
+            let UID = $(this).data("id");
+
+            $.ajax({
+                type: 'GET',
+                url: '@Url.Action("Desbloquear_Usuario", "Usuario")',
+                dataType: 'json',
+                async: true,
+                data: { UID: UID },
+                success: function (data) {
+
+                    Swal.fire({
+                        title: 'Usuario Desbloqueado',
+                        text: 'El usuario ha sido desbloqueado correctamente.',
+                        icon: 'success',
+                        willClose: (willClose) => {
+                            window.location.href = '/Usuario/TablaUsuarios';
+                        },
+                        confirmButtonColor: '#3085d6',
+                        confirmButtonText: 'Aceptar'
+                    })
+                }
+            });
+        });
+
+
+        //Cambiar rol
+        $('.form-select.roles').on("change", function(){
+            let UID = $(this).data("id");
+            var valorSeleccionado = $(this).find('option:selected').text();
+
+            $.ajax({
+                type: 'GET',
+                url: '@Url.Action("Cambiar_Rol", "Usuario")',
+                dataType: 'json',
+                async: true,
+                data: { UID: UID, rol: valorSeleccionado },
+                success: function (data) {
+                    Swal.fire({
+                        title: 'Rol cambiado',
+                        text: 'El cambio de rol ha sido efectuado correctamente',
+                        icon: 'success',
+                        willClose: (willClose) => {
+                            window.location.href = '/Usuario/TablaUsuarios';
+                        },
+                        confirmButtonColor: '#3085d6',
+                        confirmButtonText: 'Aceptar'
+                    })
+                }
+            });
+        })
+    
+    
+    </script>
+}

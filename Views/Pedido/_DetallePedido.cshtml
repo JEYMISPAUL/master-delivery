@@ -1,0 +1,118 @@
+﻿@using Delivery.Domain.Order
+@using Delivery.Domain.Food
+@model Pedido
+
+@{
+    Dictionary<int, ComidaLog> comida_pedido = new Dictionary<int, ComidaLog>();
+    if (ViewBag.Comida_pedidoJSON is not null)
+    {
+        comida_pedido = ViewBag.Comida_pedidoJSON;
+    }
+}
+
+
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvas_detalle" aria-labelledby="offcanvasRightLabel">
+
+    @if (Model is not null)
+    {
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title">Pedido de: @Model.Cliente </h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+
+            @foreach (var item in comida_pedido)
+            {
+                <div class="accordion accordion-flush" id="accordionFlushExample">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header p-0 m-0 flex-grow-1 overflow-auto">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse_@item.Key" aria-expanded="false" aria-controls="flush-collapseOne">
+                                <p class="p-0 m-0 flex-grow-1 overflow-auto">@item.Value.Nombre</p>
+                                <div style="display:inline">S/. @item.Value.Precio</div>
+                            </button>
+                        </h2>
+                        <div id="flush-collapse_@item.Key" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                            <div class="accordion-body">
+                                <ul class="list-group overflow-auto">
+                                    @foreach (var c in item.Value.Caracteristicas)
+                                    {
+                                        <li class="list-group-item d-flex">
+                                            <p class="p-0 m-0 flex-grow-1 overflow-auto">
+                                                @c.Value.Nombre
+                                            </p>
+                                            <div style="display:inline">S/. @c.Value.Precio</div>
+                                        </li>
+                                    }
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+
+            @*Adicional*@
+
+            <hr>
+            <div class="accordion accordion-flush" id="accordionFlushExample">
+                <div class="accordion-item">
+                    <table class="table table-striped table-responsive table-hover">
+                        <tbody>
+                            <tr>
+                                <th>Dirección:</th>
+                                <td>
+                                    @Model.Direccion.Nombre_Calle N° @Model.Direccion.Numero
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Detalle de la dirección</th>
+                                @if (@Model.Direccion.Detalle is not null)
+                                {
+                                    <td>@Model.Direccion.Detalle</td>
+                                }
+                                else
+                                {
+                                    <td>No especificado</td>
+                                }
+                            </tr>
+                            <tr>
+                                <th>Teléfono</th>
+                                <td>@Model.Telefono</td>
+                            </tr>
+
+                            <tr>
+                                <th>Método de pago</th>
+                                @if (@Model.MetodoPago is not null)
+                                {
+                                    <td>@Model.MetodoPago.Tipo</td>
+                                }
+                                else
+                                {
+                                    <td>En efectivo</td>
+                                }
+                            </tr>
+                            <tr>
+                                <th>Total a pagar</th>
+                                <td>S/. @Model.Total</td>
+                            </tr>
+
+                            <tr>
+                                <th>Detalle del pedido</th>
+                                @if(Model.Detalle is not null)
+                                {
+                                    <td>@Model.Detalle</td>
+                                }
+                                else
+                                {
+                                    <td class="form-label">No proporcionado</td>
+                                }
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    }
+</div>
+

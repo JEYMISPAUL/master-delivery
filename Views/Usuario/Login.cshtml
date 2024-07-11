@@ -1,0 +1,80 @@
+﻿@using Delivery.Domain.User
+@model Usuario
+<style>
+    body {
+        background-image: url('../assets/FondoLogin.png');
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    .tarjeta{
+        border-radius: 15px;
+        width:max-content;
+        display: flex;
+        align-items: center;
+    }
+
+    .inputL{
+        width: 440px
+    }
+
+</style>
+
+
+<div class="container mt-4 mb-4">
+    <div class="card text-center tarjeta offset-3">
+        <h2 class="card-title" style="margin: 10px; font-family: Arial Rounded MT;">Iniciar sesión</h2>
+        <div class="card-body">
+            <svg class="bd-placeholder-img rounded-circle mb-3" width="180" height="180" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid meet" focusable="false">
+                <defs>
+                    <pattern id="bebidaImagen" width="100%" height="100%">
+                        <image x="0" y="0" width="100%" xlink:href="../assets/Usuario.png" />
+                    </pattern>
+                </defs>
+                <rect width="100%" height="100%" fill="url(#bebidaImagen)" />
+            </svg>
+            @if (@ViewBag.UserNoValid != null){
+                <div class="alert alert-danger overflow-auto" style="max-width:500px" role="alert">
+                    @ViewBag.UserNoValid
+                </div>
+            }
+            <form asp-action="Login">
+                <div class="form-group">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text"> <i class="fa-regular fa-envelope"></i> </span>
+                        <div class="form-floating inputL">
+                            <input asp-for="Email" type="email" class="form-control" placeholder="example@email.com" required>
+                            <label>Correo electrónico</label>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <div class="input-group mb-4">
+                        <span class="input-group-text"> <i class="fa-solid fa-asterisk"></i> </span>
+                        <div class="form-floating inputL">
+                            <input asp-for="Password" type="password" class="form-control" placeholder="password123" required>
+                            <label>Contraseña</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary btn-lg" style="width: 470px;">Ingresar</button>
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+    <br />
+
+    <div class="offset-4">
+        <p>¿Primera vez aquí? 
+            <a class="link-body-emphasis" asp-action="Register">Registrate ahora</a>
+        </p>
+    </div>
+</div>
+
+

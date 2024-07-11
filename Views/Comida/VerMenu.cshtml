@@ -1,0 +1,521 @@
+﻿@using Delivery.Domain.Food
+@using Microsoft.AspNetCore.Identity
+@{
+    var listaCategoria = Enum.GetValues(typeof(CategoriaComida)).Cast<CategoriaComida>().ToList();
+    int ID_Cliente = 0;
+    try
+    {
+        ID_Cliente = int.Parse(User.FindFirst("ID").Value);
+    }
+    catch (NullReferenceException)
+    {
+        
+    }
+}
+
+
+<body>
+    @if (User.Identity.IsAuthenticated)
+    {
+        <!--Pedidos-->
+        <div id="contenedorPedidosCliente">
+            @await Html.PartialAsync("_VerComidasPedido");
+        </div>
+    }
+
+    @*Toast*@
+    <div id="pedidoRealizado" data-delay="500" style="position: absolute; top: 0; right: 0;">
+        <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header">
+                <strong class="me-auto">Plato registrado</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div class="toast-body">
+                El plato ha sido registrado
+            </div>
+        </div>
+    </div>
+
+    <!--Body-->
+    <div class="container mt-3">
+        <h1>Menú del día</h1>
+        <div id="container_Menu" class="row container">
+
+            @*Filtro*@
+            <div class="row mb-3">
+                <div class="col">
+                    <select class="form-select" id="select_categorias">
+                        <option selected value="-1">Todo</option>
+                        @foreach (CategoriaComida item in listaCategoria)
+                        {
+                            <option value="@Convert.ToInt32(item)">@item.ToString()</option>
+                        }
+                    </select>
+                </div>
+                <div class="col input-group">
+                    <input type="text" class="form-control" id="filtro_texto" placeholder="Busqueda por nombre...">
+                    <button class="btn btn-light" id="filtro_buscar">Buscar</button>
+                </div>
+            </div>
+
+
+            @*Botones extra*@
+            <div class="row">
+                <div class="col">
+
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <button class="btn btn-primary" id="VerComidasDelPedido" data-bs-toggle="offcanvas" href="#MostrarPedidos">
+                            Ver comidas registrados
+                        </button>
+                    }
+
+                </div>
+            </div>
+
+            @*Lista de comidas*@
+            <div id="contenedor_lista_comidas">
+            </div>   
+        
+        </div>
+    </div>
+
+    <br>
+    <br>
+
+
+    <!--navi-->
+    <div class="container" style="width: 300px;">
+        <nav aria-label="Page navigation example">
+            <ul class="pagination" id="navi">
+                @*
+                <li class="page-item"><a class="page-link">Previous</a></li>
+                <li class="page-item"><a class="page-link">1</a></li>
+                <li class="page-item"><a class="page-link">2</a></li>
+                <li class="page-item"><a class="page-link">3</a></li>
+                <li class="page-item"><a class="page-link">Next</a></li>
+                *@
+            </ul>
+        </nav>
+    </div>
+    
+    <div id="contenedorElegirCaracteristica">
+        @await Html.PartialAsync("_ElegirCaracComida", new Comida())
+    </div>
+
+</body>
+
+@section Scripts{
+    <script>
+        var listadoComidasPedir = {};
+        let idCliente = @ID_Cliente;
+        var agrupacion = 1;
+        var paginaActual = 1;
+        var TotalPaginas = 0;
+        var categoria_seleccionada = null;
+        var busqueda = "";
+        let contenedor = $('#divpedidosregistrados');
+
+        function cantidadComida(numero) {
+            let contador = 0;
+
+            for (let clavePrincipal in listadoComidasPedir) {
+                for (let claveSecundaria in listadoComidasPedir[clavePrincipal]) {
+
+                    if (claveSecundaria == numero) {
+                        contador++;
+                    }
+                }
+            }
+
+            return contador;
+        };
+
+        function Asignar_Paginacion() {
+            let paginaciones = "";
+
+            //Anterior
+            if (paginaActual > 1) {
+                paginaciones += `
+                <li class="page-item"><a class="page-link" id="ant" href="#">
+                    <i class="fa-solid fa-arrow-left"></i>
+                </a></li>`;
+            }
+            else{
+                paginaciones += `
+                <li class="page-item disabled"><a class="page-link" id="ant" href="#">
+                    <i class="fa-solid fa-arrow-left"></i>
+                </a></li>`;
+            }
+
+
+            //Lógica números
+            if (TotalPaginas <= 3){
+                for (let i = 1; i <= TotalPaginas; i++) {
+                    if (i == paginaActual) {
+                        paginaciones += `<li class="page-item active"><a class="page-link" href="#">${i}</a></li>`;
+                    }
+                    else {
+                        paginaciones += `<li class="page-item"><a class="page-link pe-auto pag" href="#">${i}</a></li>`;
+                    }
+                }
+            }
+            else{
+                for (let i = Math.max(1, paginaActual - 1); i <= Math.min(TotalPaginas, paginaActual + 1); i++) {
+                    if (i == paginaActual) {
+                        paginaciones += `<li class="page-item active"><a class="page-link" href="#">${i}</a></li>`;
+                    }
+                    else {
+                        paginaciones += `<li class="page-item"><a class="page-link pe-auto pag" href="#">${i}</a></li>`;
+                    }
+                }
+            }
+
+
+            //Siguiente
+            if (paginaActual < TotalPaginas) {
+                paginaciones += `
+                <li class="page-item"><a class="page-link" id="sig" href="#">
+                     <i class="fa-solid fa-arrow-right"></i>
+                </a></li>`;
+            }
+            else{
+                paginaciones += `
+                <li class="page-item disabled"><a class="page-link" id="sig" href="#">
+                        <i class="fa-solid fa-arrow-right"></i>
+                </a></li>`;
+            }
+
+
+            //Aplicar al elemento html de paginación
+            $('#navi').html(paginaciones);
+        }
+
+        function FiltroComidas(){
+            var isFormSubmitted = false;
+            $.ajax({
+                url: '@Url.Action("_ListaComidas")',
+                method: 'GET',
+                data: { busqueda: busqueda, CategoriaComida: categoria_seleccionada, page: paginaActual },
+                success: function(data){
+                    $('#contenedor_lista_comidas').html(data.html); //Mostrar lista de comidas filtradas
+                    TotalPaginas = data.paginas_totales; //Actualizar el total de paginas
+                    Asignar_Paginacion();//Re asignar paginación
+
+                    //Asignación de las paginadas
+                    $('#ant').on("click", function () {
+                        paginaActual--;
+                        FiltroComidas();
+                        $("html, body").animate({ scrollTop: 0 }, 100);
+                    });
+                    $('#sig').on("click", function () {
+                        paginaActual++;
+                        FiltroComidas();
+                        $("html, body").animate({ scrollTop: 0 }, 100);
+                    });
+                    $('.page-link.pe-auto.pag').on("click", function () {
+                        let num_pag = parseInt($(this).text());
+                        paginaActual = num_pag;
+                        FiltroComidas();
+                        $("html, body").animate({ scrollTop: 0 }, 100);
+                    });
+
+                    ////////////////////
+
+                    //Vista parcial para elegir platos al pedido
+                    $('.btn.btn-success.pedir').click(function () {
+
+                        window.onbeforeunload = function () {
+                            if (!isFormSubmitted) {
+                                return ' ';
+                            }
+                            return null;
+                        }
+
+                        let idcomida = $(this).data("id");
+                        let comidaName = $(this).data("name");
+                        let comidaPrice = $(this).data("price");
+                        let listacaracteristicas = {};
+                        let listacaracteristicasNombre = [];
+                        let listacaracteristicasPrecio = [];
+
+                        $.ajax({
+                            type: 'POST',
+                            url: '/Comida/_ElegirCaracComida',
+                            data: { id: idcomida },
+                            dataType: 'html',
+                            async: true,
+                            success: function (result) {
+
+                                $.ajax({
+                                    url: '@Url.Action("ConsultarStock","Comida")',
+                                    type: 'GET',
+                                    datatype: 'JSON',
+                                    data: { idComida: idcomida },
+                                    success: function (data) {
+                                        let stockComida = data - cantidadComida(idcomida);
+                                        if (stockComida == 0) {
+                                            $('#guardarpedido').prop('disabled', true);
+                                            $('#guardarpedido').removeClass('btn btn-success');
+                                            $('#guardarpedido').addClass('btn btn-danger');
+                                            $('#guardarpedido').text('Stock acabado');
+                                        }
+                                        else {
+                                            $('#guardarpedido').prop('disabled', false);
+                                            $('#guardarpedido').removeClass('btn btn-danger');
+                                            $('#guardarpedido').addClass('btn btn-success');
+                                            $('#guardarpedido').text('Pedir');
+                                        }
+                                    }
+                                });
+
+                                let agrupacionCarac = 1;
+
+                                $('#contenedorElegirCaracteristica').html(result);
+                                $('#elegirCaracteristicaComida').modal('show');
+
+                                //Agregar caracteristica
+                                $('#Agregarcaracteristica').on('click', function () {
+
+                                    let seleccion = $('#SeleccionarCaracteristicas').val();
+                                    //No se elige una caracteristica
+                                    if (seleccion == null) {
+                                        $('#validacionCaracteristicas').text('Necesita marcar una de las opciones');
+                                        setTimeout(function () {
+                                            $("#validacionCaracteristicas").fadeOut();
+                                        }, 1500);
+                                        setTimeout(function () {
+                                            // Mostrar el elemento nuevamente
+                                            $('#validacionCaracteristicas').text('');
+                                            $("#validacionCaracteristicas").fadeIn();
+                                        }, 1500);
+                                    }
+                                    //Se agrega la caracteristica correctamente
+                                    else {
+                                        let listado = $('#listadoCaracteristicas').find("li");
+                                        $('#validacionCaracteristicas').text('');
+
+                                        let valor = $('#SeleccionarCaracteristicas').find("option:selected").html();
+                                        let precioCarac = $('#SeleccionarCaracteristicas').find("option:selected").data("price");
+
+
+                                        //Si se agrega un valor no repetido
+                                        if ($('#listadoCaracteristicas').find("li").length < 10) {
+                                            let li = $('<li class="list-group-item border d-flex">  <p class="p-0 m-0 flex-grow-1 overflow-auto">' + valor + '</p>  <div class="form-text" style="display:inline">S/. ' + precioCarac + '</div>  </li>');
+                                            let buttonclose = $('<button type="button" class="btn-close quitar" data-id="' + agrupacionCarac + '" data-name="' + valor + '" data-price="' + precioCarac + '" ></button>');
+
+                                            //Close button action
+                                            buttonclose.on('click', function () {
+                                                let borrar = $(this).closest('li').find('button').data('id');
+                                                let borrarNombre = $(this).closest('li').find('button').data('name');
+                                                let borrarPrecio = $(this).closest('li').find('button').data('price');
+
+                                                delete listacaracteristicas[borrar];
+
+                                                listacaracteristicasNombre = listacaracteristicasNombre.filter(x => x != borrarNombre);
+                                                listacaracteristicasPrecio = listacaracteristicasPrecio.filter(x => x != borrarPrecio);
+                                                $(this).closest('li').remove();
+
+                                            });
+
+                                            li.append(buttonclose);
+                                            $('#listadoCaracteristicas').append(li);
+
+                                            listacaracteristicas[agrupacionCarac] = {
+                                                Nombre: valor,
+                                                Precio: parseFloat(precioCarac.toString().replace(',', '.'))
+                                            };
+                                            listacaracteristicasNombre.push(valor);
+                                            listacaracteristicasPrecio.push(precioCarac);
+                                            agrupacionCarac++;
+                                        }
+                                        else {
+                                            $('#validacionCaracteristicas').text('Ya no puedes agregar más características');
+                                            setTimeout(function () {
+                                                $("#validacionCaracteristicas").fadeOut();
+                                            }, 1500);
+                                            setTimeout(function () {
+                                                // Mostrar el elemento nuevamente
+                                                $('#validacionCaracteristicas').text('');
+                                                $("#validacionCaracteristicas").fadeIn();
+                                            }, 1500);
+                                        }
+                                    }
+                                });
+
+                                $('#guardarpedido').on('click', function () {
+                                    //Quitar alert de no tener elementos
+                                    if (Object.keys(listadoComidasPedir).length === 0) {
+                                        $('#quitarAlert').hide();
+                                        $('#butt_order_submit').prop('disabled', false);
+                                    }
+                                    listadoComidasPedir[agrupacion] = {};
+                                    listadoComidasPedir[agrupacion] = {
+                                        Nombre: comidaName,
+                                        Precio: comidaPrice,
+                                        Caracteristicas: listacaracteristicas
+                                    };
+
+                                    //Sumar precios dinamicamente
+                                    let anteriorPrecio = parseFloat($('#precioTotal').text());
+
+
+                                    let precioComida = 0.0;
+                                    listacaracteristicasPrecio.forEach((item) => {
+                                        precioComida += parseFloat(item.toString().replace(',', '.'));
+                                    });
+                                    precioComida += parseFloat(comidaPrice);
+                                    anteriorPrecio += precioComida;
+
+                                    $('#precioTotal').text(anteriorPrecio);
+
+                                    let accordeonItem = $(`
+                                <div class="accordion" data-price="${precioComida}">
+                                    <div class="accordion-item overflow-auto"> </div>
+                                </div>`);
+
+                                    anteriorPrecio = 0;
+
+                                    let accordeonHeader = $(`
+                                <p class="accordion-header p-0 m-0 flex-grow-1 overflow-auto">
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse${agrupacion}">
+                                        <p class="p-0 m-0 flex-grow-1 overflow-auto">${comidaName}</p>
+                                        <div style="display:inline">S/. ${comidaPrice}</div>
+                                    </button>
+                                </p>`);
+
+                                    let accordeonBody = $(`
+                                <div id="flush-collapse${agrupacion}" class="accordion-collapse collapse">
+                                    <div class="accordion-body"> </div>
+                                </div>
+                                `);
+
+                                    let accordeonList = $(`
+                                    <ul class="list-group overflow-auto"> </ul>
+                                `);
+
+                                    let accordeonListItem = "";
+
+                                    let accordeonButtondelete = $(`
+                                <br>
+                                <div class="row">
+                                    <button data-id="${agrupacion}" class="btn btn-danger borrarComida">
+                                        Eliminar elemento
+                                    </button>
+                                </div>
+
+                                `);
+
+                                    //Borrar comida
+                                    accordeonButtondelete.find('.btn.btn-danger.borrarComida').on('click', function () {
+                                        let numeroAgrupacionBorrar = $(this).data('id');
+                                        delete listadoComidasPedir[numeroAgrupacionBorrar];
+                                        let precioEliminar = parseFloat(accordeonItem.data("price"));
+                                        let precioActual = parseFloat($('#precioTotal').text());
+                                        $('#precioTotal').text(precioActual - precioEliminar);
+                                        accordeonItem.remove();
+
+                                        if (Object.keys(listadoComidasPedir).length === 0) {
+                                            $('#quitarAlert').show();
+                                            $('#butt_order_submit').prop('disabled', true);
+                                        }
+                                    });
+
+                                    //Agregación
+                                    //Para tener los items
+                                    let temp = 0;
+                                    listacaracteristicasNombre.forEach((item) => {
+                                        accordeonListItem = $(`
+                                        <li class="list-group-item d-flex">
+                                            <p class="p-0 m-0 flex-grow-1 overflow-auto elementoLista">
+                                                ${item}
+                                            </p>
+                                            <div class="form-text" style="display:inline">S/. ${listacaracteristicasPrecio[temp]}</div>
+                                        </li>
+                                    `);
+                                        temp++;
+                                        accordeonList.append(accordeonListItem);
+                                    });
+
+                                    listacaracteristicasPrecio = [];
+
+                                    accordeonBody.find('.accordion-body').append(accordeonList);
+                                    accordeonBody.find('.accordion-body').append(accordeonButtondelete);
+
+                                    accordeonItem.find('.accordion-item.overflow-auto').append(accordeonHeader);
+                                    accordeonItem.find('.accordion-item.overflow-auto').append(accordeonBody);
+
+                                    contenedor.append(accordeonItem);
+
+                                    let toastPlato = new bootstrap.Toast($('#pedidoRealizado .toast:last'));
+                                    toastPlato.show();
+
+                                    agrupacion++;
+                                    console.log(listadoComidasPedir);
+                                });
+                            }
+                        });
+
+
+                    });
+
+                },
+                error: function(error){
+                    console.error('Error', error);
+                }
+            });
+
+        }
+
+        //Filtro seleccionar categorías
+        $('#select_categorias').change(function(){
+
+            paginaActual = 1;
+
+            if (parseInt($(this).val()) == -1) {
+                categoria_seleccionada = null; //TODO
+            }
+            else {
+                categoria_seleccionada = $(this).val(); //Categorizado
+            }
+            FiltroComidas();
+        })
+
+        //Filtro por busqueda escrita
+        $('#filtro_buscar').on("click", function () {
+            paginaActual = 1;
+            busqueda = $('#filtro_texto').val();
+            FiltroComidas()
+        });
+
+        //Enviar pedido
+        $('#formPedido').on('submit', function(evt){
+            $('#Order_param1').val(JSON.stringify(listadoComidasPedir));
+            $('#Order_param2').val(idCliente);
+            let precioFinal = parseFloat($('#precioTotal').text());
+            $('#pasar_precio').val(precioFinal);
+        });
+
+        //Vista parcial de lista de comidas
+        FiltroComidas();
+
+        //Vista parcial para ver el estado del pedido
+        $('#VerComidasDelPedido').click(function () {
+
+            //let listadoJSON = JSON.stringify(listadoComidasPedir)
+
+            $.ajax({
+                type: 'GET',
+                url: '/Comida/_VerComidasPedido',
+                dataType: 'html',
+                async: true,
+                success: function (result) {
+                    //Agregar boton 
+                }
+
+            });
+        });
+       
+
+    </script>
+}

@@ -1,0 +1,105 @@
+﻿@using Microsoft.AspNetCore.Identity;
+@using System.Security.Claims;
+
+@{
+    string nombre = "No registrado";
+    string apellido = "_";
+    try
+    {
+        nombre = User.FindFirst("Nombre").Value;
+        apellido = User.FindFirst("Apellido").Value;
+    }
+    catch(NullReferenceException)
+    {
+        
+    }
+}
+
+<div class="offcanvas offcanvas-end" tabindex="-1" id="MostrarPedidos">
+    <div class="offcanvas-header">
+        <h5 class="offcanvas-title">Pedido de: @nombre @apellido</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+
+        <div id="divpedidosregistrados">
+            <div class="alert alert-primary" role="alert" id="quitarAlert">
+                Aún no ha pedido platos por el momento
+            </div>
+        </div>
+        @*
+        EJEMPLO ESTRUCTURA
+
+        <div class="accordion accordion-flush">
+            <div class="accordion-item overflow-auto">
+
+
+                <p class="accordion-header p-0 m-0 flex-grow-1 overflow-auto">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse1">
+                        <a class="btn-close"></a> Comida 1
+                    </button>
+                </p>
+
+
+                <div id="flush-collapse1" class="accordion-collapse collapse">
+                    <div class="accordion-body">
+
+
+                        <ul class="list-group overflow-auto">
+                            <li class="list-group-item d-flex">
+                                <p class="p-0 m-0 flex-grow-1 overflow-auto">
+                                   Con papas fritas
+                                </p>
+                                <button type="button" class="btn-close"></button>
+                            </li>
+                            <li class="list-group-item d-flex">
+                                <p class="p-0 m-0 flex-grow-1 overflow-auto">
+                                   Mostaza
+                                </p>
+                                <button type="button" class="btn-close"></button>
+                            </li>
+                            <li class="list-group-item d-flex">
+                                <p class="p-0 m-0 flex-grow-1 overflow-auto">
+                                    Ají con limon
+                                </p>
+                                <button type="button" class="btn-close"></button>
+                            </li>
+                        </ul>
+
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        *@
+
+        @*Resto*@
+        <hr>
+        <div class="accordion accordion-flush" id="accordionFlushExample">
+            <div class="accordion-item">
+                <table class="table">
+                    <tbody>
+                        <tr>
+                            <th>Total:</th>
+                            <td>S/. <p id="precioTotal" style="display:inline">0</p></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <br>
+        <div class="row container">
+            <form id="formPedido" method="post" asp-action="RealizarPedido">
+                <input type="hidden" name="precio" id="pasar_precio"/>
+                <input type="hidden" name="listaComidasPedido" id="Order_param1" />
+                <input type="hidden" name="idcliente" id="Order_param2" />
+                <button disabled id="butt_order_submit" class="btn btn-primary" type="submit">Realizar el pedido</button>
+            </form>
+        </div>
+
+
+    </div>
+</div>

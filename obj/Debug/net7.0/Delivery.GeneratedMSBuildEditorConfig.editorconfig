@@ -1,0 +1,107 @@
+is_global = true
+build_property.TargetFramework = net7.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = Delivery
+build_property.RootNamespace = Delivery
+build_property.ProjectDir = C:\Users\Jeymis Paul\Documents\Proyectos de visual studio\Nueva carpeta\Sistema-Web-Delivery-master\Delivery\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.RazorLangVersion = 7.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Users\Jeymis Paul\Documents\Proyectos de visual studio\Nueva carpeta\Sistema-Web-Delivery-master\Delivery
+build_property._RazorSourceGeneratorDebug = 
+
+[C:/Users/Jeymis Paul/Documents/Proyectos de visual studio/Nueva carpeta/Sistema-Web-Delivery-master/Delivery/Views/Comida/CaracteristicaComida.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29taWRhXENhcmFjdGVyaXN0aWNhQ29taWRhLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Jeymis Paul/Documents/Proyectos de visual studio/Nueva carpeta/Sistema-Web-Delivery-master/Delivery/Views/Comida/DetalleComida.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29taWRhXERldGFsbGVDb21pZGEuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Jeymis Paul/Documents/Proyectos de visual studio/Nueva carpeta/Sistema-Web-Delivery-master/Delivery/Views/Comida/EditarMenu.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29taWRhXEVkaXRhck1lbnUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Jeymis Paul/Documents/Proyectos de visual studio/Nueva carpeta/Sistema-Web-Delivery-master/Delivery/Views/Comida/VerMenu.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29taWRhXFZlck1lbnUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Jeymis Paul/Documents/Proyectos de visual studio/Nueva carpeta/Sistema-Web-Delivery-master/Delivery/Views/Comida/_ElegirCaracComida.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29taWRhXF9FbGVnaXJDYXJhY0NvbWlkYS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Jeymis Paul/Documents/Proyectos de visual studio/Nueva carpeta/Sistema-Web-Delivery-master/Delivery/Views/Comida/_ListaComidas.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29taWRhXF9MaXN0YUNvbWlkYXMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Jeymis Paul/Documents/Proyectos de visual studio/Nueva carpeta/Sistema-Web-Delivery-master/Delivery/Views/Comida/_ModificarComida.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29taWRhXF9Nb2RpZmljYXJDb21pZGEuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Jeymis Paul/Documents/Proyectos de visual studio/Nueva carpeta/Sistema-Web-Delivery-master/Delivery/Views/Comida/_VerComidasPedido.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29taWRhXF9WZXJDb21pZGFzUGVkaWRvLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Jeymis Paul/Documents/Proyectos de visual studio/Nueva carpeta/Sistema-Web-Delivery-master/Delivery/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Jeymis Paul/Documents/Proyectos de visual studio/Nueva carpeta/Sistema-Web-Delivery-master/Delivery/Views/Pedido/CrearPedido.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVkaWRvXENyZWFyUGVkaWRvLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Jeymis Paul/Documents/Proyectos de visual studio/Nueva carpeta/Sistema-Web-Delivery-master/Delivery/Views/Pedido/TablaPedido.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVkaWRvXFRhYmxhUGVkaWRvLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Jeymis Paul/Documents/Proyectos de visual studio/Nueva carpeta/Sistema-Web-Delivery-master/Delivery/Views/Pedido/_DetallePedido.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVkaWRvXF9EZXRhbGxlUGVkaWRvLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Jeymis Paul/Documents/Proyectos de visual studio/Nueva carpeta/Sistema-Web-Delivery-master/Delivery/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Jeymis Paul/Documents/Proyectos de visual studio/Nueva carpeta/Sistema-Web-Delivery-master/Delivery/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Jeymis Paul/Documents/Proyectos de visual studio/Nueva carpeta/Sistema-Web-Delivery-master/Delivery/Views/Usuario/EditarDatos.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb1xFZGl0YXJEYXRvcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Jeymis Paul/Documents/Proyectos de visual studio/Nueva carpeta/Sistema-Web-Delivery-master/Delivery/Views/Usuario/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb1xMb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Jeymis Paul/Documents/Proyectos de visual studio/Nueva carpeta/Sistema-Web-Delivery-master/Delivery/Views/Usuario/Register.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb1xSZWdpc3Rlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Jeymis Paul/Documents/Proyectos de visual studio/Nueva carpeta/Sistema-Web-Delivery-master/Delivery/Views/Usuario/RegisterEmpleados.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb1xSZWdpc3RlckVtcGxlYWRvcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Jeymis Paul/Documents/Proyectos de visual studio/Nueva carpeta/Sistema-Web-Delivery-master/Delivery/Views/Usuario/TablaUsuarios.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb1xUYWJsYVVzdWFyaW9zLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Jeymis Paul/Documents/Proyectos de visual studio/Nueva carpeta/Sistema-Web-Delivery-master/Delivery/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Jeymis Paul/Documents/Proyectos de visual studio/Nueva carpeta/Sistema-Web-Delivery-master/Delivery/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Jeymis Paul/Documents/Proyectos de visual studio/Nueva carpeta/Sistema-Web-Delivery-master/Delivery/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-zqp0cnkcin

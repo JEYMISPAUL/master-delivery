@@ -1,0 +1,229 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+  <style>
+    body {
+      padding-bottom: 3rem;
+      color: rgb(var(--bs-tertiary-color-rgb));
+      background-color: whitesmoke;
+    }
+
+    .carousel-item {
+      height: 32rem;
+    }
+
+    @@media (min-width: 40em) {
+      /* Bump up size of carousel content */
+      .carousel-caption p {
+        margin-bottom: 1.25rem;
+        font-size: 1.25rem;
+        line-height: 1.4;
+      }
+
+      .featurette-heading {
+        font-size: 50px;
+      }
+    }
+
+    @@media (min-width: 62em) {
+      .featurette-heading {
+        margin-top: 7rem;
+      }
+    }
+
+    /* Center align the text within the t
+    .marketing .col-lg-4 {
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+    /* rtl:begin:ignore */
+    .marketing .col-lg-4 p {
+      margin-right: .75rem;
+      margin-left: .75rem;
+    }
+    /* rtl:end:ignore */
+
+    .featurette-divider {
+      margin: 5rem 0; /* Space out the Bootstrap <hr> more */
+    }
+
+    /* Thin out the marketing headings */
+    /* rtl:begin:remove */
+    .featurette-heading {
+      letter-spacing: -.05rem;
+    }
+    
+  </style>
+
+
+<!--Carousel-->
+<div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+
+    <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+
+    <div class="carousel-inner">
+
+        <!--Sección de comida-->
+        <div class="carousel-item active" data-bs-interval="3000">
+            <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false">
+                <defs>
+                    <pattern id="imagen-patron1" x="0" y="0" width="100%" height="100%">
+                        <image x="0" y="0" width="100%" xlink:href="/assets/Pollo.png" />
+                    </pattern>
+                </defs>
+                <rect width="100%" height="100%" fill="url(#imagen-patron1)" />
+            </svg>
+            <div class="container">
+                <div class="carousel-caption text-start">
+                    <h1>Obtenga comida de calidad</h1>
+                    <p class="opacity-75" style="text-align: justify;">
+                        Déjate seducir por la magia de la buena comida en un lugar donde la pasión por la gastronomía se encuentra
+                        con la creatividad en cada plato. En nuestro restaurante, cada bocado es una experiencia única que despierta
+                        tus sentidos y te lleva a un mundo de sabores inigualables. ¡Ven y únete a nosotros para un festín inolvidable!
+                    </p>
+                    @if (User.IsInRole("Cliente") || !User.Identity.IsAuthenticated)
+                    {
+                        <p><a class="btn btn-lg btn-success" asp-controller="Comida" asp-action="VerMenu">Ver menú de hoy</a></p>
+                    }
+                    else if (User.IsInRole("Chef") || User.IsInRole("Administrador"))
+                    {
+                        <p><a class="btn btn-lg btn-success" asp-controller="Comida" asp-action="EditarMenu">Editar Menú</a></p>
+                    }
+                </div>
+            </div>
+        </div>
+
+
+        <!--Sección de pedido-->
+        <div class="carousel-item">
+            <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false">
+                <defs>
+                    <pattern id="imagen-patron2" x="0" y="0" width="100%" height="100%">
+                        <image x="0" y="0" width="100%" xlink:href="/assets/Repartidor.png" />
+                    </pattern>
+                </defs>
+                <rect width="100%" height="100%" fill="url(#imagen-patron2)" />
+            </svg>
+            <div class="container">
+                <div class="carousel-caption text-start">
+                    <h1>Delicias a Domicilio</h1>
+                    <p class="opacity-75" style="text-align: justify;">
+                        ¿Quieres deleitarte con sabores excepcionales sin tener que cocinar ni salir de casa?
+                        Nuestro servicio de pedidos a domicilio te ofrece la solución perfecta. Experimenta la excelencia gastronómica
+                        en la comodidad de tu hogar con una amplia selección de platos cuidadosamente preparados para satisfacer tus
+                        deseos. ¡Haz tu pedido ahora y descubre una nueva forma de disfrutar de la buena comida sin complicaciones!
+                    </p>
+                    @if (User.IsInRole("Cliente"))
+                    {
+                        <p><a class="btn btn-lg btn-success" asp-controller="Pedido" asp-action="TablaPedido">Ver tabla de pedidos</a></p>
+                    }
+                    else if (User.IsInRole("Repartidor") || User.IsInRole("Administrador"))
+                    {
+                        <p><a class="btn btn-lg btn-success" asp-controller="Pedido" asp-action="TablaPedido">Ver tabla de pedidos</a></p>
+                    }
+                    else if (!User.Identity.IsAuthenticated)
+                    {
+                        <p><a class="btn btn-lg btn-success" asp-controller="Usuario" asp-action="Login">Realice un pedido</a></p>
+                    }
+                </div>
+            </div>
+        </div>
+
+
+        <!--Sección final-->
+        <div class="carousel-item">
+            <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false">
+                <defs>
+                    <pattern id="imagen-patron3" x="0" y="0" width="100%" height="100%">
+                        <image x="0" y="0" width="100%" xlink:href="/assets/Restaurante.png" />
+                    </pattern>
+                </defs>
+                <rect width="100%" height="100%" fill="url(#imagen-patron3)" />
+            </svg>
+            <div class="container">
+                <div class="carousel-caption text-start">
+                    <h1>Una Experiencia de Sabor en Cada Pedido</h1>
+                    <p class="opacity-75" style="text-align: justify;">
+                        Sabemos que la buena comida es un placer que no debería limitarse a ocasiones especiales.
+                        Con nuestro servicio de pedidos a domicilio, puedes disfrutar de una experiencia culinaria
+                        excepcional en cualquier momento y lugar. Desde platos clásicos hasta creaciones contemporáneas,
+                        cada pedido está diseñado para llevar el sabor y la calidad directamente a tu puerta. Permítenos
+                        convertir tu comida en una experiencia memorable. ¡Realiza tu pedido hoy y déjate llevar por el deleite
+                        de nuestros sabores!
+                    </p>
+                    @if (!User.Identity.IsAuthenticated)
+                    {
+                        <p><a asp-controller="Usuario" asp-action="Register" class="btn btn-lg btn-success">Create una cuenta ahora</a></p>
+                    }
+                    else if (User.IsInRole("Administrador"))
+                    {
+                        <p><a asp-controller="Usuario" asp-action="TablaUsuarios" class="btn btn-lg btn-success">Administración de usuarios</a></p>
+                    }
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
+
+<hr>
+
+<div class="container">
+
+    <!--Colocar Imagenes luego-->
+    <div class="row featurette">
+        <div class="col-md-7">
+            <h2 class="featurette-heading fw-normal lh-1">Sea libre de pedir lo que <span class="text-body-secondary">usted desee</span></h2>
+            <p class="lead" style="text-align:justify">
+                En este espacio culinario, te invitamos a explorar un festín de sabores cuidadosamente seleccionados para 
+                satisfacer tu paladar. Sumérgete en nuestro menú diverso y descubre una sinfonía de opciones que abrazan 
+                desde los clásicos reconfortantes hasta las innovadoras creaciones culinarias.
+            </p>
+        </div>
+        <div class="col-md-5">
+            <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title>
+                <image href="/assets/restaurante2.jpg" width="100%" height="100%" preserveAspectRatio="xMidYMid slice" />
+            </svg>
+        </div>
+    </div>
+    <hr class="featurette-divider">
+
+
+    <div class="row featurette">
+        <div class="col-md-7 order-md-2">
+            <h2 class="featurette-heading fw-normal lh-1">Horario de <span class="text-body-secondary">Atención</span></h2>
+            <p class="lead">
+                Nos encantaría atenderte y ser parte de tus momentos especiales. Nuestro equipo está disponible para recibir tus pedidos en el siguiente horario:
+            </p>
+            <p class="lead">
+                <strong>Lunes a Viernes:</strong> 11:00 am - 9:00 pm
+            </p>
+            <p class="lead">
+                <strong>Sábados y Domingos:</strong> 12:00 pm - 10:00 pm
+            </p>
+        </div>
+        <div class="col-md-5 order-md-1">
+            <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title>
+                <image href="/assets/HorarioAtencion.jpg" width="100%" height="100%" preserveAspectRatio="xMidYMid slice" />
+            </svg>
+        </div>
+    </div>
+    <hr class="featurette-divider">
+
+</div>

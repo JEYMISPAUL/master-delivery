@@ -1,0 +1,102 @@
+﻿@using Delivery.Domain.Food
+@using Microsoft.AspNetCore.Identity
+@model IEnumerable<Comida>
+
+@if (Model.Count() > 0)
+{
+    <div class="row">
+        @foreach (Comida item in Model)
+        {
+            <a class="col-sm-6 mt-3" asp-controller="Comida" asp-action="DetalleComida" asp-route-id="@item.ID">
+                <div style="border-radius: 50px;" class="card">
+                      <a asp-controller="Comida" asp-action="DetalleComida" asp-route-id="@item.ID">
+                        <svg style="border-top-left-radius: 50px; border-top-right-radius: 50px;" class="bd-placeholder-img" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid meet" focusable="false">
+                            <defs>
+                                <pattern id="imagen+@item.ID" width="100%" height="100%">
+                                    <image x="0" y="-50" width="100%" xlink:href="/imagenes/Comida/@item.Imagen" />
+                                </pattern>
+                            </defs>
+                            <rect width="100%" height="100%" fill="url(#imagen+@item.ID)" />
+                        </svg>
+                    </a>
+
+                    <div class="card-body">
+
+                        <a asp-controller="Comida" asp-action="DetalleComida" asp-route-id="@item.ID">
+                            <h5 class="card-title">
+                                <strong>@item.Nombre</strong>
+                            </h5>
+
+                            <div class="mb-4 overflow-auto" style="height:90px">
+                                <p class="card-text" style="text-align: justify">
+                                    @item.Descripcion
+                                </p>
+                            </div>
+
+                        </a>
+
+                       
+
+                        <div class="row">
+                            <div class="col-9">
+                                <div class="input-group mb-3">
+                                    @*Pedir*@
+
+                                    @if (User.IsInRole("Chef") || User.IsInRole("Administrador"))
+                                    {
+                                        <a class="btn btn-primary" data-id="@item.ID">
+                                            Editar
+                                        </a>
+                                        <button type="button" class="btn btn-danger cerrar" data-id="@item.ID" data-bs-toggle="modal" data-bs-target="#EliminarComida">
+                                            Eliminar
+                                        </button>
+                                        <form class="formstock">
+                                            <input type="hidden" , name="idc" value="@item.ID">
+                                            <input min="0" type="number" name="nuevoStock" value="@item.Stock" title="Stock" class="form-control" style="max-width:100px">
+                                        </form>
+                                        <button class="btn btn-secondary stock" data-dataid="@item.ID">
+                                            <i class="fa-solid fa-floppy-disk"></i>
+                                        </button>
+                                    }
+                                    else
+                                    {
+                                        @if (item.Stock > 0)
+                                        {
+                                            @if (User.Identity.IsAuthenticated)
+                                            {
+                                                <button type="button" data-id="@item.ID" data-name="@item.Nombre" data-price="@item.Precio" class="btn btn-success pedir">Pedir</button>
+                                            }
+                                            else
+                                            {
+                                                <a class="btn btn-success" asp-controller="Usuario" asp-action="Login">Pedir</a>
+                                            }
+                                        }
+                                        else
+                                        {
+                                            <button class="btn btn-danger" disabled>Agotado</button>
+                                        }
+                                    }
+                                </div>
+                                @if (User.IsInRole("Cliente"))
+                                {
+                                    <p class="form-text">Solo quedan @item.Stock platos disponibles</p>
+                                }
+                            </div>
+                            <div class="col mb-3">
+                                <div class="alert alert-success" role="alert">
+                                    <p style="text-align: center; height: 5px;">S/. @item.Precio</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        }
+    </div>
+}
+else
+{
+    <div class="alert alert-primary mt-5" role="alert">
+        No se encontraron platos disponibles
+    </div>
+}

@@ -1,0 +1,159 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using Delivery.Domain.Order
+@using Delivery.Domain.Food
+@model Pedido
+@{
+    var metodosPago = Enum.GetValues(typeof(TipoMetodoPago)).Cast<TipoMetodoPago>().ToList();
+
+    string nombre = "No registrado";
+    string apellido = "_";
+    try
+    {
+        nombre = User.FindFirst("Nombre").Value;
+        apellido = User.FindFirst("Apellido").Value;
+    }
+    catch (NullReferenceException)
+    {
+
+    }
+}
+
+<div class="container">
+
+    <form id="Form_Addrress_Pay" method="post" asp-action="CrearPedido">
+    <div class="row">
+        <div class="container centrado mt-4">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="card-title mt-2">Registrar pedido</h5>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <h6>Ubicación</h6>
+                        <div class="col mt-2 mb-2">
+                            <div class="input-group">
+                                <input asp-for="Direccion.Nombre_Calle" type="text" class="form-control" placeholder="Nombre de la calle" style="width: 500px;" required>
+                                <input asp-for="Direccion.Numero" min="0" type="number" class="form-control" placeholder="Número calle" style="width: 150px" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col mt-2">
+                            <textarea asp-for="Direccion.Detalle" class="form-control" placeholder="Detalle" rows="2"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <div class="row container">
+                    <h6>Método de pago</h6>
+                    <div class="col mb-3">
+                    <div id="alert_select_pago" class="alert-danger" role="alert">
+                        Debes seleccionar una opción
+                    </div>
+                        <select id="select_pago" asp-for="MetodoPago.Tipo" class="form-select">
+                            <option disable selected hidden>Elegir método de pago</option>
+                            @{
+                                string aux = "Tarjeta de crédito";
+                            }
+                            @foreach(var item in metodosPago){
+                                <option value="@Convert.ToInt32(item)">
+                                    @item.ToString()
+                                </option>
+                            }
+                        </select>
+                    </div>
+                </div>
+                @*Metodo de pago*@
+
+                <div id="alert_efectivo" class="alert alert-success role">
+                    El pago se realizará en su domicilio por el repartidor
+                </div>
+
+                <div class="row container container_metodoPago">
+                    <div class="col mb-3">
+                        <input id="input_name_tarjet" asp-for="MetodoPago.NombreTarjeta" type="text" value="@nombre @apellido" class="form-control" placeholder="Nombre del propietario">
+                    </div>
+                    <div class="col mb-3">
+                        <input id="input_number_tarjet" asp-for="MetodoPago.Numero" type="tel" maxlength="16" inputmode="numeric" pattern="[0-9\s]{13,19}" autocomplete="cc-number" class="form-control" placeholder="Número de la tarjeta">
+                    </div>
+                </div>
+                <div class="row container container_metodoPago">
+                    <div class="form-floating col col-5 mb-3">
+                        <input id="fecha_Expiracion" asp-for="MetodoPago.fechaExpiracion" type="date" class="form-control" placeholder="Expiración">
+                        <label class="form-label">Fecha de expiración</label>
+                    </div>
+                    <div class="form-floating col col-2 mb-3">
+                        <input id="input_CVV_tarjet" asp-for="MetodoPago.CVV" type="text" class="form-control" placeholder="CVV" maxlength="3">
+                        <label>CVV</label>
+                    </div>
+                </div>
+
+                <div class="row container mb-3">
+                    <button type="submit" class="btn btn-success">Realizar el pedido</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    </form>
+
+
+</div>
+
+@section Scripts{
+    <script>
+        $('.row.container.container_metodoPago').hide();
+        $('#alert_select_pago').hide();
+        $('#alert_efectivo').hide();
+
+        function show_tarjet_inputs(){
+            $('.row.container.container_metodoPago').show();
+            $('#input_name_tarjet').prop('required', true);
+            $('#input_number_tarjet').prop('required', true);
+            $('#fecha_Expiracion').prop('required', true);
+            $('#input_CVV_tarjet').prop('required', true);
+            $('#alert_efectivo').hide();
+        }
+
+        function hide_tarjet_inputs(){
+            $('.row.container.container_metodoPago').hide();
+            $('#input_name_tarjet').removeAttr('required');
+            $('#input_number_tarjet').removeAttr('required');
+            $('#fecha_Expiracion').removeAttr('required');
+            $('#input_CVV_tarjet').removeAttr('required');
+            $('#alert_efectivo').show();
+        }
+
+        var isFormSubmitted = false;
+
+        $('#select_pago').change(function () {
+            let eleccion = $(this).val();
+            if (eleccion == 0) hide_tarjet_inputs();
+            else show_tarjet_inputs();
+        });
+
+        $('#Form_Addrress_Pay').submit(function (evt) {
+            isFormSubmitted = true;
+
+            let seleccion = $('#select_pago').val();
+            if (seleccion != 'Elegir método de pago') {
+                $('#alert_select_pago').hide();                
+            }
+            else{
+                $('#alert_select_pago').show();
+                evt.preventDefault();
+            }
+        });
+
+        $(document).ready(function () {
+            let fechaActual = new Date().toISOString().split('T')[0];
+            $('#fecha_Expiracion').attr('min', fechaActual);
+
+            window.onbeforeunload = function(){
+                if (!isFormSubmitted) {
+                    return ' ';
+                }
+                return null;
+            }
+        });
+    </script>
+}

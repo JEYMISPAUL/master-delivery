@@ -1,0 +1,162 @@
+﻿@using Delivery.Domain.Food;
+@model Comida;
+@{
+    var listaCategorias = Enum.GetValues(typeof(CategoriaComida)).Cast<CategoriaComida>().ToList();
+    IEnumerable<CaracteristicaComida> caracteristicasTotales = ViewBag.caracteristicas;
+
+    IEnumerable<CaracteristicaComida> caracteristicas = Enumerable.Empty<CaracteristicaComida>();
+    string strlistaIndices = "[]";
+    string imagenAnterior = "";
+
+    if (!ViewBag.modeloValido) {
+        imagenAnterior = ViewBag.anteriorImagen;
+        strlistaIndices = ViewBag.listcaract;
+        if (ViewBag.modo == "Editar") caracteristicas = ViewBag.comidaCarac;
+        else
+        {
+            if (ViewBag.comidaCarac is not null)
+            {
+                strlistaIndices = "[";
+                caracteristicas = ViewBag.comidaCarac;
+                foreach (var item in caracteristicas)
+                {
+                    strlistaIndices += $"{item.Id},";
+                }
+                strlistaIndices = strlistaIndices.Remove(strlistaIndices.Count() - 1);
+                strlistaIndices += "]";
+            }
+        }
+    }
+    else
+    {
+        try
+        {
+            imagenAnterior = Model.Imagen;
+        }
+        catch (NullReferenceException)
+        {
+
+        }
+
+        //Formatear caracteristicas de la comida seleccionada
+        if (ViewBag.comidaCarac is not null)
+        {
+            strlistaIndices = "[";
+            caracteristicas = ViewBag.comidaCarac;
+            foreach (var item in caracteristicas)
+            {
+                strlistaIndices += $"{item.Id},";
+            }
+            strlistaIndices = strlistaIndices.Remove(strlistaIndices.Count() - 1);
+            strlistaIndices += "]";
+        }
+    }
+}
+
+<!--Comida registro y edit-->
+<div class="offcanvas offcanvas-start" tabindex="-1" id="RegistrarComida">
+    <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="tituloCanvas" >...</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+        <div>
+            <form action="" id="formulario" method="post" enctype="multipart/form-data">
+                <div asp-validation-summary="ModelOnly" class="text-danger alter alert-danger"></div>
+
+                @*Pasar las características de la comida*@
+                <input type="hidden" name="listaIndicescarac" id="arrayids" value="@strlistaIndices" />
+
+                @*ID*@
+                <input type="hidden" asp-for="ID" readonly/>
+
+                @*Imagen anterior para el edit*@
+                <input type="hidden" name="urlant" value="@imagenAnterior" />
+
+                @*Cambiar imagen o no*@
+                <input type="hidden" name="ChangeImage" value="si" id="changeImageval"/>
+
+                <span class="alert-danger" asp-validation-for="Nombre"></span>
+                <input asp-for="Nombre" type="text" class="form-control mb-3" placeholder="Nombre del plato" title="Nombre del plato" />
+
+                <span class="alert-danger" asp-validation-for="Descripcion"></span>
+                <textarea asp-for="Descripcion" class="form-control mb-3" placeholder="Descripción" title="Descripción"></textarea>
+
+                <span class="alert-danger" asp-validation-for="Precio"></span>
+                <input asp-for="Precio" type="number" class="form-control mb-3" placeholder="Precio" title="Precio en S/."/>
+
+                <span class="alert-danger" asp-validation-for="Stock"></span>
+                <input asp-for="Stock" type="number" class="form-control mb-3" placeholder="Stock" title="Stock"/>
+
+
+                <div class="col">
+
+                    <!--Checkbox-->
+                    <div class="form-check mb-3">
+                        <input asp-for="MenuDelDia" class="form-check-input" type="checkbox">
+                        <label class="form-check-label">
+                            Menú del día
+                        </label>
+                    </div>
+
+                    <span id="valCategoria" class="alert-danger"></span>
+                    <div class="form-floating">
+                        <select asp-for="Categoria" id="selectCategoria" class="form-select mb-3">
+                            <option selected disabled hidden value="">No elegido</option>
+                            @foreach (CategoriaComida item in listaCategorias)
+                            {
+                                <option value="@Convert.ToInt32(item)">@item.ToString()</option>
+                            }
+                        </select>
+
+                        <label for="floatingInput">Tipo de comidas</label>
+                    </div>
+
+
+                    @*Características comida*@
+                    <span id="valCaracteristicas" class="alert-danger"></span>
+                    <div class="input-group mb-1">
+                        <select class="form-select mb-1" id="selectCaracteristica" style="height: 40px;">
+                            <option class="overflow-auto" selected disabled hidden value="">Agregar posibles características</option>
+                            @foreach (CaracteristicaComida item in caracteristicasTotales)
+                            {
+                                <option value="@item.Id" title="@item.Detalle">@item.Nombre</option>
+                            }
+                        </select>
+                        <button class="btn btn-secondary" id="agregarCaracteristica" type="button" style="height: 40px;">Agregar</button>
+                    </div>
+
+                    <p class="form-text">Lista de posibles características:</p>
+                    <ul id="listaCaracteristicas" class="list-group mb-3 overflow-auto">
+
+                        @foreach(CaracteristicaComida item in caracteristicas)
+                        {
+                            <li class="list-group-item border d-flex">
+
+                                <p class="p-0 m-0 flex-grow-1 overflow-auto">
+                                    @item.Nombre
+                                </p>
+
+                            <a type="button" class="btn btn-close" data-id="@item.Id" ></a>
+                            </li>
+                        }
+
+                    </ul>
+
+
+                    <hr />
+                    @*Enviar imagen*@
+                    @if (ViewBag.imagenNula is not null)
+                    {
+                        <span class="alert-danger">@ViewBag.imagenNula</span>
+                    }
+                    <span class="alert-danger" id="valImagen"></span>
+                    <input asp-for="Imagen" id="fileimage" type="file" class="form-control" name="files" accept="image/*" />
+
+                    <hr />
+
+                    <button id="Modificar" type="submit" class="btn" >default</button>
+            </form>
+        </div>
+    </div>
+</div>
